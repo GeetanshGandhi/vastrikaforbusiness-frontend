@@ -6,16 +6,17 @@ const Footer = () => {
     <div className='footer'>
     <div className="fl">
         {/* //<img src={footer_logo} alt="" /></div>  */}
-        <p>VASTRIKA</p>
-        <ul className="footer-links">
+        
+        {/* <ul className="footer-links">
             <li>Products</li>
             <li>About</li>
             <li>Contact</li>
-        </ul>
+        </ul> */}
         </div>
         <div className="footer-copyright">
             <hr />
-            <p>Copyright @ 2024 - All rights Reserved</p>
+            <p>VASTRIKA Copyright @ 2024 - All rights Reserved</p>
+            
                           
         </div>
 </div>
