@@ -21,7 +21,6 @@ export default function Home() {
 	]
 	return (
 		<div>
-			<p>home page</p>
 			<Popup trigger={<div className="wrapper"><button>Add a Product</button></div>} 
 				modal
 				nested
@@ -31,6 +30,7 @@ export default function Home() {
 						<AddProduct close={close}/>
 				)}
 			</Popup>
+			<p className="your-prod-msg">Your Products</p>
 			<div className="products-container">
 			{
 				products.map((item)=>{

@@ -1,5 +1,11 @@
+.your-prod-msg{
+    font: 5vh "Ubuntu", Arial;
+    margin-left: 2vw;
+}
 .products-container{
+    margin-top: 10vh;
     display: flex;
     justify-content: center;
     align-items: center;
+    flex-wrap: wrap;
 }
