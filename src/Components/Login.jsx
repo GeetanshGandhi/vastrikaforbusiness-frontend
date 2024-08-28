@@ -88,7 +88,7 @@ export default function BusinessLogin() {
 
                 <div className="wrapper">
                     <p className="newuser-msg">New Business?</p>
-                    <Link to="businessRegister" className='newuser-link'>Register</Link>
+                    <Link to="/buisnessRegister" className='newuser-link'>Register</Link>
                 </div>
             </div>
         </div>
