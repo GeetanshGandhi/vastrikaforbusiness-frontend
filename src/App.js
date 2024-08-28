@@ -7,6 +7,7 @@ import 'react-toastify/dist/ReactToastify.css';
 import LandingPage from './Components/LandingPage';
 import AddProduct from './Components/AddProduct';
 import BusinessLogin from './Components/Login';
+import BuisnessRegister from './Components/Register';
 import 'reactjs-popup/dist/index.css'
 import { useState } from 'react';
 function App() {
@@ -27,6 +28,9 @@ function App() {
 		},
 		{
             path: "/businessLogin",  element: <><Navbar/><BusinessLogin /></>
+        },
+		{
+            path: "/buisnessRegister",  element: <><Navbar/><BuisnessRegister /></>
         }
 	])
 	return (
