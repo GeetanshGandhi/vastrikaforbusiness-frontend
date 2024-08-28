@@ -5,7 +5,7 @@ export default function LandingPage() {
     <div>
       <div   
  className="full-screen-image">
-        <img id="buisnesslogo" src={require("../images/BuisnessBenefits11.png")} alt="logo" />
+        <img id="buisnesslogo" src={require("../images/BuisnessBenefits1.png")} alt="logo" />
       </div>
 
     </div>
