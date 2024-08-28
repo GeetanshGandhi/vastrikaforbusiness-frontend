@@ -11,11 +11,12 @@ import BuisnessRegister from './Components/Register';
 import 'reactjs-popup/dist/index.css'
 import { useState } from 'react';
 function App() {
-	const [login, setlogin] = useState({
-		gstin:"22AAAAA0000A1Z5",email:"geetansh.gandhi2504@gmail.com",
-		businessName: "Vastra Bhandar", businessOwnerName:"Abhigyan Sharma",
-		contactNumber:"9879654939",cityId:"IDR", approval:true
-	});
+	// const [login, setlogin] = useState({
+	// 	gstin:"22AAAAA0000A1Z5",email:"geetansh.gandhi2504@gmail.com",
+	// 	businessName: "Vastra Bhandar", businessOwnerName:"Abhigyan Sharma",
+	// 	contactNumber:"9879654939",cityId:"IDR", approval:true
+	// });
+	const [login, setlogin] = useState(null)
 	const router = createBrowserRouter([
 		{
 			path:"/", element:<><Navbar/>{login===null?<LandingPage/>:<Home/>}</>
