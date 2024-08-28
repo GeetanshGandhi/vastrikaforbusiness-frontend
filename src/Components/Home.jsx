@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import Popup from 'reactjs-popup'
 import AddProduct from './AddProduct'
 import ProductItem from './ProductItem'
-
+import './Home.css'
 export default function Home() {
 	const loggedInUser = {
 		gstin:"22AAAAA0000A1Z5",email:"geetansh.gandhi2504@gmail.com",
@@ -21,7 +21,6 @@ export default function Home() {
 	]
 	return (
 		<div>
-			<p>home page</p>
 			<Popup trigger={<div className="wrapper"><button>Add a Product</button></div>} 
 				modal
 				nested
@@ -31,11 +30,14 @@ export default function Home() {
 						<AddProduct close={close}/>
 				)}
 			</Popup>
+			<p className="your-prod-msg">Your Products</p>
+			<div className="products-container">
 			{
 				products.map((item)=>{
 					return <><ProductItem item={item}/></>
 				})
 			}
+			</div>
 		</div>
 	)
 }

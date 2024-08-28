@@ -1,4 +1,9 @@
 .prod-item-container{
-    width: 3vw;
-    border: 2px solid black
+    border: 2px solid black;
+}
+.prod-name{
+    font: 3.5vh "Ubuntu", Arial;
+}
+#prod-item-img{
+    height: 25vh;
 }
