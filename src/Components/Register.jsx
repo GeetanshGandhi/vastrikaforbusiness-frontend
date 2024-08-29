@@ -120,6 +120,10 @@ export default function BusinessRegistration() {
 						<input placeholder=" " id="form-ip-gstin" type="text" className="form-ip-input" />
 						<label htmlFor='form-ip-gstin' className="form-ip-head">GSTIN</label>
 					</div>
+					<div className="form-ip">
+						<input placeholder=" " id="form-ip-passwd" type="text" className="form-ip-input" />
+						<label htmlFor='form-ip-passwd' className="form-ip-head">Password</label>
+					</div>
 				</div>
 				<div className="wrapper">
 					<button onClick={handleRegister} className="register-btn">Register</button>
