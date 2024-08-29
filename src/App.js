@@ -28,8 +28,8 @@ function App() {
 			path:"/addProd", element: <><Navbar/><AddProduct/></>
 		},
 		{
-            path: "/businessLogin",  element: <><Navbar/><BusinessLogin /></>
-        },
+		        path: "/businessLogin",  element: <><Navbar/><BusinessLogin /></>
+		},
 		{
             path: "/buisnessRegister",  element: <><Navbar/><BuisnessRegister /></>
         }
