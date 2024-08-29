@@ -101,8 +101,8 @@ export default function BusinessRegistration() {
 						</select>
 					</div>
 					<div className="form-ip">
-						<input placeholder=" " id="form-ip-requestCity" type="text" className="form-ip-input" />
-						<label htmlFor='form-ip-requestCity' className="form-ip-head">Request City</label>
+						<input placeholder=" " id="form-ip-certificateId" type="text" className="form-ip-input" />
+						<label htmlFor='form-ip-certificateId' className="form-ip-head">Certificate Id</label>
 					</div>
 				</div>
 				<div className="form-row-wrap">
