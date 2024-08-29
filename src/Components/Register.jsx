@@ -68,7 +68,7 @@ export default function BusinessRegistration() {
 	}
 
 	return (
-		<div className='wrapper register-container'>
+		<div className='super-flex-container'>
 			<div className="register-form">
 				<p className="reg-head">Business Registration</p>
 				<div className="form-row-wrap">
@@ -91,8 +91,8 @@ export default function BusinessRegistration() {
 						<label htmlFor='form-ip-contact' className="form-ip-head">Contact Number</label>
 					</div>
 				</div>
-				<div className="form-row-wrap">
-					<div className="form-ip">
+				<div className="city-wrap">
+					<div>
 						<p className="select-msg">Select City</p>
 						<select id="selectCity">
 							<option value="Delhi">Delhi</option>
@@ -100,11 +100,17 @@ export default function BusinessRegistration() {
 							<option value="Indore">Indore</option>
 						</select>
 					</div>
+					<div className="req-city-btn">
+						<button>Request your city</button>
+					</div>
+				</div>
+				<div className="form-row-wrap">
 					<div className="form-ip">
 						<input placeholder=" " id="form-ip-certificateId" type="text" className="form-ip-input" />
 						<label htmlFor='form-ip-certificateId' className="form-ip-head">Certificate Id</label>
 					</div>
 				</div>
+				
 				<div className="form-row-wrap">
 					<div className="form-ip">
 						<input placeholder=" " id="form-ip-address" type="text" className="form-ip-input" />

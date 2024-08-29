@@ -20,7 +20,7 @@ export default function Home() {
 		}
 	]
 	return (
-		<div>
+		<div className='super-container'>
 			<Popup trigger={<div className="wrapper"><button>Add a Product</button></div>} 
 				modal
 				nested

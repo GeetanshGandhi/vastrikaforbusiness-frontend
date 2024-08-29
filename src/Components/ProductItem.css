@@ -1,6 +1,5 @@
 .product-tile {
-    border: 2px solid black; 
-    border-radius: 8px;
+    border: 1px solid rgb(194, 194, 194);
     overflow: hidden;
     box-shadow: 0 2px 4px rgba(0,0,0,0.1);
     margin: 16px;
