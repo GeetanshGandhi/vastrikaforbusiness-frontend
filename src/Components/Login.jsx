@@ -4,8 +4,9 @@ import { Link, useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
 
 export default function BusinessLogin() {
+    // localStorage.removeItem("vastrikaBusiness")
     const [creds, setcreds] = useState({
-        businessEmail: '', password: ''
+        ownerEmail: '', password: ''
     });
     const [togglepass, settogglepass] = useState(false);
 
@@ -20,16 +21,16 @@ export default function BusinessLogin() {
     const navigate = useNavigate();
 
     const dologin = async () => {
-        if (creds["businessEmail"] === '') {
+        if (creds["ownerEmail"].trim() === '') {
             toast.error("Please Provide an Email!");
             return;
         }
-        if (creds["password"] === '') {
+        if (creds["password"].trim() === '') {
             toast.error("Please Provide a Password!");
             return;
         }
 
-        let res = await fetch(process.env.REACT_APP_BACKEND + "business/loginBusiness", {
+        let res = await fetch(process.env.REACT_APP_BACKEND + "business/login", {
             headers: { "content-type": "application/json" },
             body: JSON.stringify(creds),
             method: "POST"
@@ -38,7 +39,7 @@ export default function BusinessLogin() {
         res = await res.text();
 
         if (res === "Not Found") {
-            toast.error("Business Not Found!");
+            toast.error("No Business with Provided Email ID exists.");
             return;
         }
         if (res === "Invalid") {
@@ -46,7 +47,7 @@ export default function BusinessLogin() {
             return;
         } else {
             localStorage.setItem("vastrikaBusiness", res);
-            navigate("/business/dashboard");
+            navigate("/");
             toast.success("Login Successful! Please wait...", { autoClose: 2000 });
             setTimeout(() => {
                 window.location.reload();
@@ -62,7 +63,7 @@ export default function BusinessLogin() {
                     <div className="login-ip-wrapper">
                         <div className="form-ip">
                             <input id='email-ip' placeholder="" type="text" className='form-ip-input' 
-                                onChange={(e) => handleFieldChange(e, "businessEmail")} />
+                                onChange={(e) => handleFieldChange(e, "ownerEmail")} />
                             <label htmlFor="email-ip"className="form-ip-head">Email ID</label>
                         </div>
                     </div>
