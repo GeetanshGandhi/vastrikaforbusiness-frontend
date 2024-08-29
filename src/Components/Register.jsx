@@ -2,6 +2,8 @@ import React, { useEffect, useState } from 'react';
 import './Register.css';
 import { toast } from 'react-toastify';
 import { Link, useNavigate } from 'react-router-dom';
+import Popup from 'reactjs-popup';
+import RequestCity from './RequestCity';
 
 export default function BusinessRegistration() {
 	let regDetails = {
@@ -49,7 +51,7 @@ export default function BusinessRegistration() {
 		regDetails["bankAccountNumber"] = document.getElementById("form-ip-bankAccount").value;
 		regDetails["gstin"] = document.getElementById("form-ip-gstin").value;
 
-		// Add validation for GSTIN and Bank Account Number as needed
+	
 
 		let res = await fetch(process.env.REACT_APP_BACKEND + "business/registerBusiness", {
 			headers: { "content-type": "application/json" },
@@ -100,9 +102,15 @@ export default function BusinessRegistration() {
 							<option value="Indore">Indore</option>
 						</select>
 					</div>
-					<div className="req-city-btn">
-						<button>Request your city</button>
-					</div>
+					<Popup trigger={<div className="wrapper"><button>Request a City</button></div>} 
+				modal
+				nested
+			>
+				{
+					close=>(
+						<RequestCity close={close}/>
+				)}
+			</Popup>
 				</div>
 				<div className="form-row-wrap">
 					<div className="form-ip">

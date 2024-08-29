@@ -33,7 +33,7 @@ export default function Navbar() {
                 </div>
             </div>
             {
-                login===null ? <p className="bus-msg">The Business Pane</p>
+                login===null ? <p className="bus-msg">The Business Panel</p>
                 :
                 <>
                 <p className="bus-name">{login["businessName"]}</p>
