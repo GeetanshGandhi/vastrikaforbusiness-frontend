@@ -9,14 +9,14 @@ import AddProduct from './Components/AddProduct';
 import BusinessLogin from './Components/Login';
 import BuisnessRegister from './Components/Register';
 import 'reactjs-popup/dist/index.css'
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 function App() {
-	const [login, setlogin] = useState({
-		gstin:"22AAAAA0000A1Z5",email:"geetansh.gandhi2504@gmail.com",
-		businessName: "Vastra Bhandar", businessOwnerName:"Abhigyan Sharma",
-		contactNumber:"9879654939",cityId:"IDR", approval:true
-	});
-	// const [login, setlogin] = useState(null)
+	const [login, setlogin] = useState(null)
+	useEffect(()=>{
+		if(localStorage.getItem("vastrikaBusiness")!==null){
+			setlogin(localStorage.getItem("vastrikaBusiness"))
+		}
+	},[])
 	const router = createBrowserRouter([
 		{
 			path:"/", element:<><Navbar/>{login===null?<LandingPage/>:<Home/>}</>
@@ -28,11 +28,14 @@ function App() {
 			path:"/addProd", element: <><Navbar/><AddProduct/></>
 		},
 		{
-		        path: "/businessLogin",  element: <><Navbar/><BusinessLogin /></>
+		    path: "/businessLogin",  element: <><Navbar/><BusinessLogin /></>
 		},
 		{
-            path: "/buisnessRegister",  element: <><Navbar/><BuisnessRegister /></>
-        }
+            path: "/businessRegister",  element: <><Navbar/><BuisnessRegister /></>
+        },
+		{
+			path: "/landing", element:<><Navbar/><LandingPage/></>
+		}
 	])
 	return (
 		<div className="App">

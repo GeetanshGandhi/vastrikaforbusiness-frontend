@@ -4,14 +4,14 @@
     box-sizing: border-box;
 }
 .super-nonflex-container{
-    min-height: 100vh;
+    min-height: 88vh;
     background-color: rgb(247, 240, 255);
 }
 .super-flex-container{
     display: flex;
     justify-content: center;
     align-items: center;
-    min-height: 100vh;
+    min-height: 88vh;
     background-color: rgb(247, 240, 255);
 }
 .wrapper{

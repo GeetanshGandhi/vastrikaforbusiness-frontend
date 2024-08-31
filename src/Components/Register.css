@@ -35,23 +35,6 @@
     font: 3.7vh "Ubuntu", Arial;
 }
 
-/* 
-.form-ip {
-    position: relative;
-    width: 48%;
-}
-
-.form-ip-head {
-    position: absolute;
-    top: 0;
-    left: 10px;
-    font-family: 'Ubuntu', Arial, sans-serif;
-    font-size: 1rem;
-    color: grey;
-    pointer-events: none;
-    transition: all 0.2s ease-out;
-}
-
 .form-ip-input {
     width: 100%;
     padding: 0.5rem;

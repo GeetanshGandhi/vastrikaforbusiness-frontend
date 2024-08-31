@@ -1,0 +1,57 @@
+@import url('https://fonts.googleapis.com/css2?family=Patrick+Hand&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Kaushan+Script&family=Sevillana&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=SUSE:wght@100..800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap');
+.landing-mainhead{
+    text-align: center;
+    font: 12vh "Patrick Hand", Arial;
+    color: rgb(88, 0, 88);
+}
+.landing-punchline{
+    text-align: center;
+    font: 5.5vh "Sevillana", Arial;
+    color:rgb(153, 0, 255);
+}
+.landing-itemcontainer{
+    padding: 2vh 0 5vh 0;
+    display: flex;
+    justify-content: center;
+}
+.landing-item{
+    width: 20vw;
+    margin: 0 2vw;
+}
+.item-hr{
+    margin-top: 2vh;
+    border: 2px solid rgb(72, 0, 121);
+}
+.landing-item-img{
+    height: 30vh;
+}
+.landing-item-head{
+    margin-top: 1vh;
+    text-align: center;
+    font: 4vh "Suse", Arial;
+    font-weight: bold;
+    color: rgb(72, 0, 121)
+}
+.landing-item-content{
+    margin-top: 1vh;
+    text-align: center;
+    font: 2.7vh "Nunito", Arial;
+    color: rgba(131, 0, 207, 0.5);
+}
+.landing-reg-btn{
+    margin: 1vh 0 10vh 0;
+    font: 4vh "Nunito", Arial;
+    padding: 3px 5vw;
+    background-color: rgb(255, 189, 255);
+    border: 2px solid rgb(95, 0, 158);
+    border-radius: 10px;
+    transition: all 0.2s ease-out;
+}
+.landing-reg-btn:hover{
+    background-color: rgb(95, 0, 158);
+    cursor: pointer;
+    color: white;
+}

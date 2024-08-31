@@ -56,7 +56,7 @@ export default function BusinessLogin() {
     };
 
     return (
-        <div className='wrapper light-container'>
+        <div className='super-flex-container'>
             <div className="login-container">
                 <h2 className="login-head">Login</h2>
                 <div className="wrapper">
@@ -89,7 +89,7 @@ export default function BusinessLogin() {
 
                 <div className="wrapper">
                     <p className="newuser-msg">New Business?</p>
-                    <Link to="/buisnessRegister" className='newuser-link'>Register</Link>
+                    <Link to="/businessRegister" className='newuser-link'>Register</Link>
                 </div>
             </div>
         </div>

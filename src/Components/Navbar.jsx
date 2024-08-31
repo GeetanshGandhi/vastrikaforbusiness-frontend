@@ -4,22 +4,19 @@ import { useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
 export default function Navbar() {
     const navigate = useNavigate();
-    const [login, setlogin] = useState( null);
-		// gstin:"22AAAAA0000A1Z5",email:"geetansh.gandhi2504@gmail.com",
-		// businessName: "Vastra Bhandar", businessOwnerName:"Abhigyan Sharma",
-		// contactNumber:"9879654939",cityId:"IDR", approval:true
+    const [login, setlogin] = useState(null);
 	
     const cityOfBusiness = "Indore"
     useEffect(()=>{
-        if(localStorage.getItem("vastrikaBusinessUser")!==null){
-            setlogin(JSON.parse(localStorage.getItem("vastrikaUser")));
+        if(localStorage.getItem("vastrikaBusiness")!==null){
+            setlogin(JSON.parse(localStorage.getItem("vastrikaBusiness")));
         }
     },[])
     const dologout = () => {
         setlogin(null)
-        localStorage.removeItem("vastrikaBusinessUser");
-        navigate("/")
-        window.location.reload();
+        localStorage.removeItem("vastrikaBusiness");
+        navigate("/landing")
+        // window.location.reload();
         toast.success("You have been logged out!")
     }
     return (
@@ -33,7 +30,7 @@ export default function Navbar() {
                 </div>
             </div>
             {
-                login===null ? <p className="bus-msg">The Business Panel</p>
+                login===null ? <p className="bus-msg">Business Panel</p>
                 :
                 <>
                 <p className="bus-name">{login["businessName"]}</p>
