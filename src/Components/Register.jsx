@@ -63,10 +63,10 @@ export default function BusinessRegistration() {
 		if (res === "Exist") {
 			toast.error("Business with this email ID already exists!");
 			return;
-		} else {
-			toast.success("Registration Successful! Please log in to continue.");
-			navigate("/businessLogin");
 		}
+		toast.success("Registration Successful! Please log in to continue.");
+		navigate("/businessLogin");
+		
 	}
 
 	return (

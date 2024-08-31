@@ -35,6 +35,9 @@ function App() {
         },
 		{
 			path: "/landing", element:<><Navbar/><LandingPage/></>
+		},
+		{
+			path: "/addProd", element: <AddProduct/>
 		}
 	])
 	return (

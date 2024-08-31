@@ -18,27 +18,6 @@
     justify-content: center;
     align-items: center;
 }
-.ip-head{
-    font: 3.5vh Arial;
-    margin: 5px 0;
-}
-.ip-input{
-    width: 100%;
-    font: 3.5vh "Nunito", Arial;
-    padding: 3px 5px;
-    color: grey;
-    border: 2px solid rgb(192, 133, 247);
-    border-radius: 5px;
-    transition: all 0.3s ease-out;
-}
-.ip-input:focus{
-    border-color: blue;
-    border-radius: 9px;
-    outline: none;
-}
-.ip-input:focus > ::placeholder{
-    font: 2px Arial;
-}
 .toggle-pass{
     font: 3vh Arial;
     font-style: italic;
