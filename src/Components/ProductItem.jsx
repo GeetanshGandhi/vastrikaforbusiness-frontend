@@ -1,17 +1,26 @@
-import React, { useState } from 'react';
+import React, { useState,useEffect } from 'react';
 import './ProductItem.css';
 import img from '../images/logo.webp';
 
 const ProductItem = ({ product }) => {
-	const { id, productName, description, price, imageUrl } = product || {};
+	const { productId, productName, description:initialDescription, price,discount:fetchedDiscount } = product || {};
 
-
+	// Base URL for images 
+	const baseImageUrl = 'product_images/';  // Replace with your actual base 
+	const imageUrl = `${baseImageUrl}${productId}.png`; // Construct URL with productId
 	const [isEditing, setIsEditing] = useState(false);
 	const [newPrice, setNewPrice] = useState(price);
-	const [discount, setDiscount] = useState(0);
+	const [discount, setDiscount] = useState(fetchedDiscount || 0);
+	const [description, setDescription] = useState(initialDescription || '');
+	const [isDescriptionEditing, setIsDescriptionEditing] = useState(false);
 
-
-	const handleEditPriceClick = () => setIsEditing(!isEditing);
+	useEffect(() => {
+		setDiscount(fetchedDiscount || 0);
+	}, [fetchedDiscount]);
+	
+	const handleEditPriceClick = () => {
+		setIsEditing(!isEditing);
+		setIsDescriptionEditing(false);};
 
 
 	const handleSavePrice = () => {
@@ -23,11 +32,19 @@ const ProductItem = ({ product }) => {
 			console.error('Invalid price value');
 		}
 	};
+	const handleSaveDescription = () => {
+		if (description.trim() !== '') {
+			console.log(`Saving new description: ${description}`);
+			setIsDescriptionEditing(false);
+		} else {
+			console.error('Description cannot be empty');
+		}
+	};
 
 	const discountedPrice = parseFloat(newPrice) * (1 - parseFloat(discount) / 100);
 
 	const handleDeleteClick = () => {
-		console.log(`Deleting product with ID: ${id}`);
+		console.log(`Deleting product with ID: ${productId}`);
 	};
 
 	return (
@@ -66,8 +83,12 @@ const ProductItem = ({ product }) => {
 								{discount > 0 && (
 									<span>Discounted Price: ${discountedPrice.toFixed(2)}</span>
 								)}
+								<div className="editbutton">
+									<button className="edit-price-button" onClick={handleEditPriceClick}>Edit</button>
+								</div>
 							</div>
-							<button className="edit-price-button" onClick={handleEditPriceClick}>Edit</button>
+							
+							
 						</>
 					)}
 				</div>
