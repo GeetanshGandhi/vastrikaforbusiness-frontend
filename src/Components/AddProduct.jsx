@@ -60,9 +60,9 @@ export default function AddProduct(props) {
 			body: formdata
 		})
 		let response = await res.json()
-		
+		console.log("clicked");
 	}
-	return (
+	return (	
 		<div>
 			<p className='add-prod-head'>Add Product</p>
 			<div className="add-prod-form">

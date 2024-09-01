@@ -28,8 +28,8 @@ export default function Home() {
 	},[login])
 	return (
 		<div className='super-nonflex-container'>
-			<p>{JSON.stringify(login)}</p>
-			<p>{JSON.stringify(products)}</p>
+			{/* <p>{JSON.stringify(login)}</p>
+			<p>{JSON.stringify(products)}</p> */}
 			<Popup trigger={<div className="wrapper"><button>Add a Product</button></div>} 
 				modal
 				nested
@@ -41,12 +41,11 @@ export default function Home() {
 			</Popup>
 			<p className="your-prod-msg">Your Products</p>
 			<div className="products-container">
-			{
-				products.map((item)=>{
-					return <><ProductItem item={item}/></>
-				})
-			}
-			</div>
+    		{products.map((product, index) => (
+        	<ProductItem key={index} product={product} />
+    		))}
+            </div>
+
 		</div>
 	)
 }

@@ -3,7 +3,7 @@ import './ProductItem.css';
 import img from '../images/logo.webp';
 
 const ProductItem = ({ product }) => {
-	const { id, name = 'Saree1', description = 'This is a sample product description.', price = 29.99, imageUrl = img } = product || {};
+	const { id, name = 'Saree1', description = 'This is a sample product description.', price = 29.99, imageUrl } = product || {};
 
 
 	const [isEditing, setIsEditing] = useState(false);
@@ -80,4 +80,3 @@ const ProductItem = ({ product }) => {
 };
 
 export default ProductItem;
-
