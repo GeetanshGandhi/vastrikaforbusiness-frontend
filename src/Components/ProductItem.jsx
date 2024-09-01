@@ -3,7 +3,7 @@ import './ProductItem.css';
 import img from '../images/logo.webp';
 
 const ProductItem = ({ product }) => {
-	const { id, name = 'Saree1', description = 'This is a sample product description.', price = 29.99, imageUrl } = product || {};
+	const { id, productName, description, price, imageUrl } = product || {};
 
 
 	const [isEditing, setIsEditing] = useState(false);
@@ -33,10 +33,10 @@ const ProductItem = ({ product }) => {
 	return (
 		<div className="product-tile">
 			<div className="product-image">
-				<img src={imageUrl} alt={name} />
+				<img src={imageUrl} alt="" />
 			</div>
 			<div className="product-info">
-				<h3>{name}</h3>
+				<h3>{productName}</h3>
 				<p>{description}</p>
 				<div className="price-display">
 					{isEditing ? (
