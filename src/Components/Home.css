@@ -1,9 +1,34 @@
+@import url('https://fonts.googleapis.com/css2?family=Arbutus&display=swap');
 .your-prod-msg{
     font: 5vh "Ubuntu", Arial;
-    margin-left: 2vw;
+    padding: 6vh 2vw 3vh 2vw;
+}
+.goto-add-prod-container{
+    background-color: white;
+    padding: 10vh 2vw;
+    box-sizing: border-box;
+    border: 6px dashed grey;
+    transition: all 0.2s ease-out;
+}
+.goto-add-prod-container:hover{
+    cursor: pointer;
+    border: 6px solid rgb(42, 0, 109);
+    border-radius: 20px;
+    background-color: rgba(236, 187, 255, 0.514);
+}
+#addprod-icon{
+    height: 15vh;
+}
+.add-prod-msg{
+    text-align: center;
+    font: 4vh "Arbutus", Arial;
+    color: rgb(52, 0, 150); 
+    transition: all 0.2s ease-out;
+}
+.goto-add-prod-container:hover > .add-prod-msg{
+    transform: scale(1.6);
 }
 .products-container{
-    margin-top: 10vh;
     display: flex;
     justify-content: center;
     align-items: center;

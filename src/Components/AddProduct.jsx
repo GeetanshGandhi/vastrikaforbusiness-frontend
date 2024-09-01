@@ -1,35 +1,33 @@
 import React, { useEffect, useRef, useState } from 'react'
 import './AddProduct.css'
+import { toast } from 'react-toastify'
+
+function checkImageExtension(file) {
+	const allowedExtensions = [".jpg", ".jpeg", ".png"]; // Add more if needed
+  
+	const fileExtension = file.name.toLowerCase().slice(file.name.lastIndexOf("."));
+  
+	return allowedExtensions.includes(fileExtension);
+}
+function descriptionLength(str) {
+    const array = str.trim().split(/\s+/);
+    return array.length;
+}
 export default function AddProduct(props) {
+	
 	const [login, setlogin] = useState(null)
-	const [categories, setCategories] = useState([])
 	useEffect(()=>{
 		if(localStorage.getItem("vastrikaBusiness")!==null){
 			setlogin(JSON.parse(localStorage.getItem("vastrikaBusiness")))
 		}
-		fetch(process.env.REACT_APP_BACKEND+"category/getAll",{
-			method: "GET",
-			headers: {"content-type":"application/json"}
-		}).then((res)=>res.json()).then((data)=>setCategories(data))
 	},[])
-	useEffect(()=>{
-		const categorySelect = document.getElementById("category-select")
-		categories.forEach((item, index)=>{
-			let option = `<option ${index===0 && "selected"} value=${item}>${item}</option>`
-			categorySelect.insertAdjacentHTML("beforeend", option)
-		})
-	},[categories])
+
 	//defining product details
 	const [product, setproduct] = useState({
 		productName:'', description:'', price:-1, discount: -1, quantityAvailable:-1
 	})
 	const handleFieldChange = (e, field) => {
 		setproduct({ ...product, [field]: e.target.value });
-	}
-	//product category
-	const [productCategory, setProdCategory] = useState("")
-	const handleCatChange = (e)=> {
-		setProdCategory(e.target.value)
 	}
 	const inputRef = useRef(null)
 	const handleImageUploadClick = ()=>{
@@ -50,6 +48,49 @@ export default function AddProduct(props) {
 
 	//submit to backend
 	const handleAddProdClick = async()=> {
+		//checking correctness of image
+		if(image===null){
+			toast.error("Please Upload an Image")
+			return;
+		}
+		if(!checkImageExtension(image)){
+			toast.error("Image must be of Valid formats")
+		}
+		if(image.size>5242880){
+			document.getElementById("5mb-msg").style.color = "red"
+			document.getElementById("5mb-msg").style.fontWeight = "bold"
+			toast.error("Image size must be less than 5MB!")
+			return;
+		}
+		else{
+			document.getElementById("5mb-msg").style.color = "green"
+			document.getElementById("5mb-msg").style.fontWeight = "normal"
+		}
+		//checking correctness of data:
+		if(product["productName"].trim()===""){
+			toast.error("Please Enter a name")
+			return;
+		}
+		if(product["description"].trim()===""){
+			toast.error("Please Enter a description")
+			return;
+		}
+		if(descriptionLength(product["description"])>20){
+			toast.error("Description must not exceed 20 words.")
+			return;
+		}
+		if(product["price"]==-1){
+			toast.error("Please Enter a price")
+			return;
+		}
+		if(product["quantityAvailable"]==-1){
+			toast.error("Please Enter available quantity")
+			return;
+		}
+		if(product["discount quantityAvailable"]==-1){
+			toast.error("Please Enter a discount (Enter 0 if no discount)")
+			return;
+		}
 		let formdata = new FormData();
 		formdata.append("productDet",JSON.stringify(product))
 		formdata.append("businessDet", JSON.stringify(login))
@@ -60,7 +101,20 @@ export default function AddProduct(props) {
 			body: formdata
 		})
 		let response = await res.json()
-		console.log("clicked");
+		console.log(response)
+		if(response["fileName"]===null){
+			if(response["message"]==="Invalid product"){
+				toast.error("Could Not Add product due to invalid Details")
+				return;
+			}
+			if(response["message"]==="Invalid image"){
+				toast.error("Could not add Product due to invalid Image!")
+			}
+		}
+		toast.success("product Added Successfully!")
+		props.refreshProducts()
+		props.close()
+		
 	}
 	return (	
 		<div>
@@ -87,6 +141,10 @@ export default function AddProduct(props) {
 							</div>
 						</div>
 					</div>
+					<div className="cat-wrapper">
+						<p className="cat-msg">Available Quantity: </p>
+						<input onChange={(e)=>handleFieldChange(e,"quantityAvailable")} id="quantity-ip" type="number" min="1" max="100"/>
+					</div>
 				</div>
 				<div className="upload-container">
 					<div className="wrapper">
@@ -99,22 +157,17 @@ export default function AddProduct(props) {
 						</div>
 					<input onChange={(e)=>handleImageUpload(e)} ref={inputRef} hidden id="image-ip" type="file" />
 					<p className="upload-msg">
-						Upload 1:1 ratio image of the product.<br/>
+						Upload 1:1 ratio image of the product for the best experience.<br/>
 						<span id="5mb-msg" style={{color:"green"}}>
-							Image must strictly be of .JPG format and less than 5MB
+							Image must strictly be of <b>.jpg or .png</b> format and less than 5MB
 						</span>
 					</p>
 				</div>
 			</div>
-			<div className="cat-wrapper">
-				<p className="cat-msg">Choose Category:</p>
-				<select onChange={(e)=>handleCatChange(e)} name="category" id="category-select"></select>
-			</div>
-			<div className="cat-wrapper">
-				<p className="cat-msg">Available Quantity: </p>
-				<input onChange={(e)=>handleFieldChange(e,"quantityAvailable")} id="quantity-ip" type="number" min="1" max="100"/>
-			</div>
-			<p className="add-desc-msg">Add a small <b>Description</b> of the product in not more than 30 words:</p>
+			<p className="add-desc-msg">
+				Add a small <b>Description</b> of the product in not more than 20 words:<br/>
+				Write a good description to attract more customers
+			</p>
 			<textarea onChange={(e)=>handleFieldChange(e,"description")} name="desc" id="prod-desc" rows={4}></textarea>
 			<div className="btn-wrapper">
 				<button className='close-btn' onClick={()=>props.close()}>Close</button>

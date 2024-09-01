@@ -5,9 +5,6 @@ import img from '../images/logo.webp';
 const ProductItem = ({ product }) => {
 	const { productId, productName, description:initialDescription, price,discount:fetchedDiscount } = product || {};
 
-	// Base URL for images 
-	const baseImageUrl = 'product_images/';  // Replace with your actual base 
-	const imageUrl = `${baseImageUrl}${productId}.png`; // Construct URL with productId
 	const [isEditing, setIsEditing] = useState(false);
 	const [newPrice, setNewPrice] = useState(price);
 	const [discount, setDiscount] = useState(fetchedDiscount || 0);
@@ -50,7 +47,7 @@ const ProductItem = ({ product }) => {
 	return (
 		<div className="product-tile">
 			<div className="product-image">
-				<img src={imageUrl} alt="" />
+				<img src={require("../../../backend/product_images/"+product["productId"]+".jpg")} alt="" />
 			</div>
 			<div className="product-info">
 				<h3>{productName}</h3>
