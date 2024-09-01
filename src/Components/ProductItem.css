@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Merienda:wght@300..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Merienda:wght@300..900&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap');
 .product-tile {
 	border: 1px solid rgb(194, 194, 194);
 	overflow: hidden;
@@ -21,6 +23,7 @@
 
 .product-info h3 {
 	font-size: 3.5vh;
+	
 	font-family: 'Ubuntu', Arial, sans-serif;
 	margin: 8px 0;
 }
@@ -45,6 +48,7 @@
 
 
 .edit-price-button {
+	margin-right: 3vh;
 	background-color: #007bff;
 	color: white;
 	border: none;
@@ -102,14 +106,89 @@
 }
 
 /* Price display */
-.price-display-info {
+/* .price-display-info {
 	display: flex;
 	flex-direction: column;
 	align-items: center;
 	justify-content: center;
+} */
+
+.originalprice{
+	color: #8c8c8c;
+    font-size: 15px;
+    font-weight: 500;
+    text-decoration: line-through;
 }
 
+.discounted_price{
+	color: #075418;
+	font-size: 20px;
+	font-weight: 700;
+}
 .price-display-info span {
 	display: block;
 	margin-bottom: 4px;
 }
+
+.modal-content h2{
+	margin-bottom: 4vh;
+	font: 4vh "Merienda", Arial;
+    text-align: center;
+  }
+  
+  
+  .modal-body {
+	
+	margin-bottom: 20px;
+	gap: 40vh;
+  }
+  .desc{
+	font: 3.5vh "Ubuntu", Arial;
+	margin-top: 4vh;
+	width: 100vh;
+	margin-left: 20vh;
+  }
+  .price_discount{
+	font: 3.5vh "Ubuntu", Arial;
+	display: flex;
+	gap: 1vh	;
+	margin-left: 20vh;
+	width: 50vh;
+  }
+  
+  
+  .modal-body label {
+	display: block;
+	margin-bottom: 10px;
+  }
+  
+  .modal-body input,
+  .modal-body textarea {
+	width: 50%;
+	padding: 8px;
+	border: 2px solid rgb(88, 0, 88);
+	border-radius: 4px;
+  }
+  
+  /* .modal-body textarea {
+	
+	resize: vertical;
+  } */
+  
+  /* Styles for the modal footer */
+  
+  
+  .modal-footer button {
+	margin-left: 25vh;
+	padding: 8px 16px;
+	border: none;
+	border-radius: 4px;
+	background-color: #007bff;
+	color: white;
+	cursor: pointer;
+	font-size: 16px;
+  }
+  .delp{
+	text-align: center;
+	font: 3.5vh "Ubuntu", Arial;
+  }
