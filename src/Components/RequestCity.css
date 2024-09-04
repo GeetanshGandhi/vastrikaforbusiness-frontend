@@ -1,55 +1,14 @@
 @import url('https://fonts.googleapis.com/css2?family=Merienda:wght@300..900&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Merienda:wght@300..900&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap');
 
-.request-city-form {
-    display: flex;
-    justify-content: space-between;
-    margin-top: 4vh;
-}
-
 .request-city-head {
     font: 4vh "Merienda", Arial;
     text-align: center;
 }
 
-/* .ip-container {
-    margin-left: 1vw;
-    padding: 0 0.5vw;
-    width: 70%;
-} */
-
 .ip-wrapper {
     padding: 0 1.5vw;
 }
-
-/* .form-ip {
-    position: relative;
-} */
-
-/* .form-ip-input {
-    width: 100%;
-    padding: 10px 10px 10px 10px;
-    font: 3vh "Ubuntu", Arial;
-    border: 2px solid rgb(88, 0, 88);
-    border-radius: 7px;
-    transition: all 0.2s ease-out;
-}
-
-.form-ip-input:focus {
-    outline: none;
-    border-color: rgb(54, 0, 54);
-}
-
-.form-ip-head {
-    position: absolute;
-    top: -10px;
-    left: 10px;
-    font: 2.5vh "Ubuntu", Arial;
-    background: white;
-    padding: 0 5px;
-    color: rgb(88, 0, 88);
-} */
-
 .state-wrapper {
     display: flex;
     justify-content: center;

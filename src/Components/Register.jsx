@@ -4,6 +4,7 @@ import { toast } from 'react-toastify';
 import { Link, useNavigate } from 'react-router-dom';
 import Popup from 'reactjs-popup';
 import RequestCity from './RequestCity';
+import RequestCategory from './RequestCategory';
 
 export default function BusinessRegistration() {
 	let regDetails = {
@@ -109,6 +110,25 @@ export default function BusinessRegistration() {
 				{
 					close=>(
 						<RequestCity close={close}/>
+				)}
+			</Popup>
+				</div>
+				<div className="category-wrap">
+					<div>
+						<p className="select-msg">Select Category</p>
+						<select id="selectCategory">
+							<option value="Banarsi">Banarsi</option>
+							<option value="Lucknowi">Lucknowi</option>
+							<option value="Maheshwari">Maheshwari</option>
+						</select>
+					</div>
+					<Popup trigger={<div className="wrapper"><button>Request a Category</button></div>} 
+				modal
+				nested
+			>
+				{
+					close=>(
+						<RequestCategory close={close}/>
 				)}
 			</Popup>
 				</div>

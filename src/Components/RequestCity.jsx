@@ -20,32 +20,31 @@ export default function RequestCity(props) {
 
     return (
         <div>
-            <p className='request-city-head'>Request New City</p>
-            <div className="request-city-form">
-                <div className='ip-container'>
-                    <div className="ip-wrapper">
-                        <div className="form-ip">
-                            <input 
-                                placeholder=' ' 
-                                id='city-name' 
-                                type="text"  
-                                className='form-ip-input'
-                                value={cityName}
-                                onChange={handleCityNameChange}
-                            />
-                            <label htmlFor="city-name" className="form-ip-head">City Name</label>
-                        </div>
-                    </div>
-                </div>
-                <div className="state-wrapper">
-                    <p className="state-msg">Select State:</p>
-                    <select name="state" id="state-select"></select>
-                </div>
-            </div>
-            <div className="btn-wrapper">
-                <button className='close-btn' onClick={() => props.close()}>Close</button>
-                <button className='request-city-btn'>Request</button>
+    <p className='request-city-head'>Request New City</p>
+    <div className="request-city-form">
+        <div className='ip-container'>
+            <div className="form-ip">
+                <input 
+                    placeholder=' ' 
+                    id='city-name' 
+                    type="text"  
+                    className='form-ip-input'
+                    value={cityName}
+                    onChange={handleCityNameChange}
+                />
+                <label htmlFor="city-name" className="form-ip-head">City Name</label>
             </div>
         </div>
+        <div className="state-wrapper">
+            <p className="state-msg">Select State:</p>
+            <select name="state" id="state-select"></select>
+        </div>
+    </div>
+    <div className="btn-wrapper">
+        <button className='close-btn' onClick={() => props.close()}>Close</button>
+        <button className='request-city-btn'>Request</button>
+    </div>
+</div>
+
     )
 }
