@@ -53,9 +53,10 @@ export default function AddProduct(props) {
 			toast.error("Please Upload an Image")
 			return;
 		}
-		if(!checkImageExtension(image)){
-			toast.error("Image must be of Valid formats")
-		}
+		// if(!checkImageExtension(image)){
+		// 	toast.error("Image must be of Valid formats");
+		//  return;
+		// }
 		if(image.size>5242880){
 			document.getElementById("5mb-msg").style.color = "red"
 			document.getElementById("5mb-msg").style.fontWeight = "bold"
@@ -100,7 +101,7 @@ export default function AddProduct(props) {
 			method: "POST",
 			body: formdata
 		})
-		let response = await res.json()
+		let response = await res.text();
 		console.log(response)
 		if(response["fileName"]===null){
 			if(response["message"]==="Invalid product"){

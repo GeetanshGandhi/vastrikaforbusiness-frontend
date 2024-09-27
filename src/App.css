@@ -1,38 +1,43 @@
-*{
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
-.super-nonflex-container{
+
+.super-nonflex-container {
     min-height: 88vh;
     background-color: rgb(247, 240, 255);
 }
-.super-flex-container{
+
+.super-flex-container {
     display: flex;
     justify-content: center;
     align-items: center;
     min-height: 88vh;
     background-color: rgb(247, 240, 255);
 }
-.wrapper{
+
+.wrapper {
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
 /* form input css */
-.form-row-wrap{
+.form-row-wrap {
     width: 100%;
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 0 5vw;
 }
-.form-ip{
+
+.form-ip {
     position: relative;
     width: 100%;
 }
-.form-ip-head{
+
+.form-ip-head {
     cursor: text;
     position: absolute;
     top: 6vh;
@@ -41,7 +46,8 @@
     color: grey;
     transition: all 0.2s ease-out;
 }
-.form-ip-input{
+
+.form-ip-input {
     border: 2px solid black;
     width: 100%;
     margin: 5vh 0 3vh 0;
@@ -52,13 +58,37 @@
     border-bottom: 2px solid rgb(192, 133, 247);
     transition: all 0.2s ease-out;
 }
-.form-ip-input:focus{
+
+.form-ip-input:focus {
     outline: none;
     border: 2px solid rgb(74, 0, 172);
     border-radius: 7px;
 }
-.form-ip-input:focus ~ .form-ip-head, .form-ip-input:not(:placeholder-shown) ~ .form-ip-head{
+
+.form-ip-input:focus~.form-ip-head,
+.form-ip-input:not(:placeholder-shown)~.form-ip-head {
     top: 3.5vh;
     font-size: 2.5vh;
     background-color: white;
+}
+
+@keyframes anvil {
+    0% {
+        transform: translateX(-100vh);
+        opacity: 0;
+    }
+
+    50% {
+        transform: translateX(-50vh);
+        opacity: 0.5;
+    }
+
+    100% {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+.popup-content {
+    -webkit-animation: anvil 0.3s normal linear;
 }

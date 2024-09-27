@@ -8,9 +8,10 @@ export default function LandingPage() {
 	}
 	return (
 		<div className='super-nonflex-container'>
+
 			<h1 className='landing-mainhead'>Vastrika for Business</h1>
 			<h2 className='landing-punchline'>Grow your Business with us</h2>
-
+			<hr className="main-hr"/>
 			<div className="landing-itemcontainer">
 				<div className="landing-item">
 					<div className="wrapper">
@@ -19,6 +20,7 @@ export default function LandingPage() {
 					<hr className="item-hr" />
 					<p className="landing-item-head">No Hassle</p>
 					<p className="landing-item-content">We at Vastrika want you to take no pain. Continue exploring our platform and experiencing the ease of our services. Our user-friendly interface and efficient processes are designed to minimize stress and maximize convenience.</p>
+					<hr className='item-below-hr' />
 				</div>
 				<div className="landing-item">
 					<div className="wrapper">
@@ -27,6 +29,7 @@ export default function LandingPage() {
 					<hr className="item-hr" />
 					<p className="landing-item-head">Value for Products</p>
 					<p className="landing-item-content">We at Vastrika believe when you sell on our platform, you'll benefit from increased visibility, targeted reach, and a trustworthy platform. This will help you maximize sales and build a successful saree business.</p>
+					<hr className='item-below-hr' />
 				</div>
 				<div className="landing-item">
 					<div className="wrapper">
@@ -35,6 +38,7 @@ export default function LandingPage() {
 					<hr className="item-hr" />
 					<p className="landing-item-head">Increase Visibility</p>
 					<p className="landing-item-content">Our platform employs advanced SEO techniques to ensure your saree listings appear prominently in search engine results. We also utilize targeted marketing campaigns and integrate with popular social media platforms to increase your exposure and reach a wider audience.</p>
+					<hr className='item-below-hr' />
 				</div>
 				<div className="landing-item">
 					<div className="wrapper">
@@ -43,6 +47,7 @@ export default function LandingPage() {
 					<hr className="item-hr" />
 					<p className="landing-item-head">Save Time & Efforts</p>
 					<p className="landing-item-content">Our platform offers automated listing creation, simplified inventory management, and efficient order processing. These features streamline your operations, saving you time and effort.</p>
+					<hr className='item-below-hr' />
 				</div>
 			</div>
 			<div className="wrapper">

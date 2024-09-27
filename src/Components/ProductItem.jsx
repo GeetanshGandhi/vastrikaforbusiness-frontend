@@ -48,7 +48,7 @@ const ProductItem = ({ product }) => {
 	return (
 		<div className="product-tile">
 			<div className="product-image">
-				<img src={require("../../../backend/product_images/"+product["productId"]+".jpg")} alt="" />
+				<img src={`data:image/png;base64,${product.productImage}`} alt="" />
 			</div>
 			<div className="product-info">
 				<h3>{productName}</h3>

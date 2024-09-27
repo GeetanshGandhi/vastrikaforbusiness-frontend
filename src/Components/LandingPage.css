@@ -6,24 +6,50 @@
     text-align: center;
     font: 12vh "Patrick Hand", Arial;
     color: rgb(88, 0, 88);
+    @media (max-width: 500px) {
+        font-size: 5vh;
+    }
 }
 .landing-punchline{
     text-align: center;
     font: 5.5vh "Sevillana", Arial;
     color:rgb(153, 0, 255);
+    @media (max-width: 500px) {
+        font-size: 3vh;
+    }
+}
+.main-hr{
+    margin: 10px 2vw 0 2vw;
+    border: 1px solid grey;
+}
+.item-below-hr{
+    display: none;
+    @media (max-width: 500px ) {
+        display:block;
+    }
 }
 .landing-itemcontainer{
     padding: 2vh 0 5vh 0;
     display: flex;
     justify-content: center;
+    @media (max-width: 500px){
+        display: block;
+    }
 }
 .landing-item{
     width: 20vw;
     margin: 0 2vw;
+    @media (max-width: 500px) {
+        width: 100vw;
+        margin: 0;
+    }
 }
 .item-hr{
     margin-top: 2vh;
     border: 2px solid rgb(72, 0, 121);
+    @media (max-width: 500px) {
+        display: none;
+    }
 }
 .landing-item-img{
     height: 30vh;
