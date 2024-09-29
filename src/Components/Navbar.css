@@ -6,10 +6,30 @@ nav{
     align-items: center;
     height: 12vh;
     background-color: rgb(199, 186, 255);
+    @media (max-width: 500px) {
+        display: block;
+        height: 17vh;
+        padding: 10px 20px;
+    }
+}
+.nav-left-wrapper{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    @media (max-width: 500px) {
+        transform: scale(0.6);
+        position: relative;
+        right: 15vw;
+        bottom: 2vh;
+        height: 9vh;
+    }
 }
 #nav-logo{
     height: 12vh;
     margin: 0 5px 0 10px;
+    @media (max-width: 500px ){
+        margin: 0 0 0 0;
+    }
 }
 .title-bigletter{
     position: relative;
@@ -25,6 +45,10 @@ nav{
     font: 7vh "Great Vibes", "Arial";
     font-weight: bold;
     color: rgb(80, 0, 69);
+    @media (max-width: 500px) {
+        top: 1vh;
+        left: 4vw;
+    }
 }
 .punchline{
     position: relative;
@@ -33,6 +57,11 @@ nav{
     font-weight: bold;
     letter-spacing: 1.3px;
     color:rgb(97, 0, 189);
+    @media (max-width: 500px) {
+        bottom: 0.5vh;
+        font-size: 4vh;
+        width: 250px;
+    }
 }
 .gotologin-btn{
     padding: 3px 20px;
@@ -68,6 +97,9 @@ nav{
     font: 5vh "Macondo Swash Caps", arial;
     font-weight: bold;
     color: rgb(79, 49, 185);
+    @media (max-width: 500px) {
+        text-align: center;
+    }
 }
 .bus-name{
     font: 5vh "Macondo Swash Caps", Arial;

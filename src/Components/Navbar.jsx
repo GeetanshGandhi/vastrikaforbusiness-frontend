@@ -21,7 +21,7 @@ export default function Navbar() {
     }
     return (
         <nav>
-            <div className="wrapper left">
+            <div className="nav-left-wrapper">
                 <img id="nav-logo" src={require("../images/logo.webp")} alt="logo" />
                 <h1 className="title-bigletter">V</h1>
                 <div style={{padding:"0"}}>
