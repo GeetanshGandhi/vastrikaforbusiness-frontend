@@ -1,42 +1,50 @@
-.footer{
+.Container{
+    height: auto;
+    width: 100vw;
+    background-color: #333E49;
+    color: white;
+}
+.block{
     display: flex;
-    flex-direction: column;
-     justify-content: center;
-     align-items: center;
-     gap: 50px;
-
+}
+table{
+    width: 60vw;
+    margin-left: 70px;
+    margin-right: 70px;
+}
+td, th{
+    text-align: left;
+    height: 40px;
+}
+hr{
+    margin-top: 100px;
+    width: 1350px;
 }
 
-.fl{
+.bottom{
+    width: 1350px;
     display: flex;
-    align-items: right;
-    gap: 20px;
+    justify-content: space-between;
+    margin-left: 100px;
+    margin-top: 40px;
+}
+.bottom .contact{
+    text-align: left;
+}
+.bottom .icon img{
+    margin-right: 10px;
+    align-self: center;
+}
+.bottom .Download img{
+    margin-right: 15px;
+}
+.right h3{
+    margin-right: 200px;
 }
 
-.footer-links{
-    display: flex;
-    list-style: none;
-    gap: 50px;
-    color: #252525;
-    font-size: 20px;
+.social{
+    margin-left: 60px;
 }
-.footer-links li{
-    cursor: pointer;
-}
-
-.footer-copyright{
-    display: flex;
-    flex-direction: column;
-     align-items: center;
-     gap: 30px;
-     width: 100%;
-     margin-bottom: 30px;
-     color: #1a1a1a;
-     font-size: 20px;
-}.footer-copyright hr{
-    width: 80%;
-    border: none;
-    border-radius: 10px;
-    height: 3px;
-    background: #c7c7c7;
+.social img{
+    margin-left: 20px;
 }
