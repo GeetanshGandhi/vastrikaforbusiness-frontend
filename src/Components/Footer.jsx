@@ -1,10 +1,10 @@
 import "./Footer.css";
 import React from "react";
-import Linkedin from "../images/LinkedinIcon.svg";
-import Facebook from "../images/Facebook.svg";
-import Twitter from "../images/Twitter.svg";
-import Youtube from "../images/Youtube.svg";
-import Insta from "../images/Insta.svg";
+import Linkedin from "../images/Social/LinkedinIcon.svg";
+import Facebook from "../images/Social/Facebook.svg";
+import Twitter from "../images/Social/Twitter.svg";
+import Youtube from "../images/Social/Youtube.svg";
+import Insta from "../images/Social/Insta.svg";
 
 export default function Footer() {
   const handleRedirect = () => {
