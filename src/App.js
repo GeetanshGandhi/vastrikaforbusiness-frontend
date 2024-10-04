@@ -10,6 +10,7 @@ import BusinessLogin from './Components/Login';
 import BuisnessRegister from './Components/Register';
 import 'reactjs-popup/dist/index.css'
 import { useEffect, useState } from 'react';
+import Footer from './Components/Footer';
 function App() {
 	const [login, setlogin] = useState(null)
 	useEffect(()=>{
@@ -19,7 +20,7 @@ function App() {
 	},[])
 	const router = createBrowserRouter([
 		{
-			path:"/", element:<><Navbar/>{login===null?<LandingPage/>:<Home/>}</>
+			path:"/", element:<><Navbar/>{login===null?<LandingPage/>:<Home/>}<Footer/></>
 		},
 		{
 			path:"/home", element: <><Navbar/><Home/></>
