@@ -11,6 +11,7 @@ import BuisnessRegister from './Components/Register';
 import 'reactjs-popup/dist/index.css'
 import { useEffect, useState } from 'react';
 import Footer from './Components/Footer';
+import Orders from './Components/Orders';
 function App() {
 	const [login, setlogin] = useState(null)
 	useEffect(()=>{
@@ -39,6 +40,18 @@ function App() {
 		},
 		{
 			path: "/addProd", element: <AddProduct/>
+		},
+		{
+			path: "/pendingOrders", element: <><Navbar/><Orders status={"Placed"}/><Footer/></>
+		},
+		{
+			path: "/dispatchedOrders", element: <><Navbar/><Orders status={"Packed"}/><Footer/></>
+		},
+		{
+			path: "cancelledOrders", element :<><Navbar/><Orders status={"Cancelled"}/><Footer/></>
+		},
+		{
+			path: "completedOrders", element: <><Navbar/><Orders status={"Complete"}/><Footer/></>
 		}
 	])
 	return (

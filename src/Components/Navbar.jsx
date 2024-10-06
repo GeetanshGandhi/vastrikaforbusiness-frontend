@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import './Navbar.css'
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
 export default function Navbar() {
     const navigate = useNavigate();
@@ -19,6 +19,9 @@ export default function Navbar() {
         // window.location.reload();
         toast.success("You have been logged out!")
     }
+    const toggleSubmenu = ()=> {
+        document.getElementById("subMenuWrap").classList.toggle("submenu-open");
+    }
     return (
         <nav>
             <div className="nav-left-wrapper">
@@ -34,23 +37,65 @@ export default function Navbar() {
                 :
                 <>
                 <p className="bus-name">{login["businessName"]}</p>
-                <div className="wrapper">
-                    <img id="locn-ico" src={require("../images/icons/locationIcon.png")} alt="locn" />
-                    <p className="city-name">{cityOfBusiness}</p>
-                </div>
                 </>
             }
-            <div className="right">
-                {
-                login===null?
-                <>
-                    <button onClick={()=>navigate("/businessLogin")} className='gotologin-btn'>Login</button>
-                </>
-                :<>
-                    <button onClick={dologout} className="logout-btn">Log out</button>
+            {
+                login === null &&
+                <button onClick={()=>navigate("/businessLogin")} className='gotologin-btn'>Login</button>
+            }
+            {
+                login!==null &&
+                <>  
+                    <div className="wrapper">
+                        <Link to="/" className="goto-home">
+                            <img src={require("../images/icons/homeIcon.png")} alt="home" />
+                            <p>Home</p>
+                        </Link>
+                        <div className="hamburger">
+                            <img className='hambg-icn' src={require("../images/icons/hamburger.png")} alt="" />
+                            <p onClick={toggleSubmenu} className="dp-init">Options</p>
+                        </div>
+                    </div>
+                    
+                    <div className="submenu-wrap" id="subMenuWrap"><div className="submenu">
+                <div className="profile">
+                    <img className='dp' src={require("../images/icons/profilepic.png")} alt="dp" />
+                    <div className="profile-info">
+                        <p className="user-name">{login["businessName"]}</p>
+                        <p className="user-add">{login["houseNumber"]+", "+login["streetBuildingName"]+", "+login["landmark"]+", "+login["city"]+", "+login["state"]}</p>
+                    </div>
+                </div>
+                <hr style={{borderBottom:"1px solid rgb(223,223,223)"}}/>
+                <Link className='submenu-link' to='/pendingOrders'>
+                    <div className="submenu-link-in">
+                    <img className='submenu-link-img' src={require("../images/icons/orderIcon.png")} alt="loc" />
+                        <p className='submenu-link-in-p'>Pending Orders</p>
+                    </div>
+                </Link>
+                <Link className='submenu-link' to='/dispatchedOrders'>
+                    <div className="submenu-link-in">
+                    <img className='submenu-link-img' src={require("../images/icons/dispatchedOrderIcon.png")} alt="loc" />
+                        <p className='submenu-link-in-p'>Packed Orders</p>
+                    </div>
+                </Link>
+                <Link className='submenu-link' to='/'>
+                    <div className="submenu-link-in">
+                        <img className='submenu-link-img' src={require("../images/icons/userIcon.png")} alt="loc" />
+                        <p className='submenu-link-in-p'>View Full Profile</p>
+                    </div>
+                </Link>
+                <Link className='submenu-link'to='/completedOrders'>
+                    <div className="submenu-link-in">
+                        <img className='submenu-link-img' src={require("../images/icons/completeOrderIcon.png")} alt="loc" />
+                        <p className='submenu-link-in-p'>Completed Orders</p>
+                    </div>
+                </Link>
+                <div className="wrapper">
+                    <button className='logout-btn' onClick={dologout}>Log Out</button>
+                </div>
+            </div></div>
                 </>
                 }
-            </div>
         </nav>
     )
 }

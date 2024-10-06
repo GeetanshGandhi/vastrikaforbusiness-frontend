@@ -77,22 +77,6 @@ nav{
     background-color: rgb(68, 0, 131);
     color: white;
 }
-.logout-btn{
-    font: 2.7vh Arial;
-    font-weight: bold;
-    color: rgb(216, 0, 0);
-    margin-right: 2vw;
-    padding: 2px 10px;
-    background-color: white;
-    border: 2px solid rgb(117, 0, 0);
-    border-radius: 5px;
-    transition: all 0.2s ease-out;
-}
-.logout-btn:hover{
-    cursor: pointer;
-    background-color: rgb(117, 0, 0);
-    color: white;
-}
 .bus-msg{
     font: 5vh "Macondo Swash Caps", arial;
     font-weight: bold;
@@ -106,10 +90,130 @@ nav{
     font-weight: bold;
     color:  rgb(50, 0, 97)
 }
-#locn-ico{
-    height: 6vh;
+.goto-home{
+    text-decoration: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 20px;
+    padding: 7px 10px;
+    border-radius: 10px;
+    transition: all 0.2s ease-out;
+}
+.goto-home:hover{
+    cursor: pointer;
+    background-color: rgb(255,255,255,0.5);
+}
+.goto-home img{
+    height: 20px;
     margin-right: 5px;
 }
-.city-name{
-    font: 4vh Arial;
+.goto-home p{
+    font: 17px Arial;
+    font-weight: bold;
+    color: black;
+}
+.hamburger{
+    display: flex;
+    align-items: center;
+    background-color: white;
+    font: 17px "Ubuntu", Arial;
+    font-weight: bold;
+    margin-right: 30px;
+    padding: 6px;
+    border: 2px solid rgb(77, 4, 126);
+    border-radius: 10px;
+    transition: all 0.2s ease-out;
+}
+.hambg-icn{
+    height: 15px;
+    margin: 0 3px;
+}
+.hamburger:hover{
+    cursor: pointer;
+    background-color: rgb(218, 204, 230);;
+}
+.submenu-wrap{
+    z-index: 100;
+    position: absolute;
+    right: 1%;
+    top: 10%;
+    max-height: 0;
+    overflow: hidden;
+    transition: all 0.4s ease-out;
+}
+.submenu-open{
+    max-height: 400px;
+}
+.submenu{
+    border: 1px solid purple;
+    background-color: white;
+    border-radius: 7px;
+}
+.profile{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 20px;
+}
+.dp{
+    height: 7vh;
+    margin-right: 10px;
+}
+.profile-info{
+    padding: 5px 0 5px 10px;
+    border-left: 1px solid rgb(201, 201, 201);
+}
+.user-name{
+    font: 3.5vh "Ubuntu", Arial;
+    font-weight: bold;
+}
+.user-add{
+    margin-top: 5px;
+    max-width: 200px;
+    font: 2.5vh "Ubuntu", Arial;
+    color: grey;
+}
+.submenu-link-in{
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid rgb(223, 223, 223);
+    padding: 5px 20px;
+    transition: all 0.05s ease-out;
+}
+.submenu-link-in:hover{
+    background-color: rgb(253, 231, 255);
+    font-weight: bold;
+}
+.submenu-link-in p{
+    transition: all 0.2s ease-out;
+}
+.submenu-link-in:hover > .submenu-link-in-p{
+    transform: translateX(10px);
+}
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&display=swap');
+.submenu-link{
+    text-decoration: none;
+    font: 3vh "Manrope", Arial;
+    color:blueviolet;
+}
+.submenu-link-img{
+    height:3.5vh;
+    margin-right: 7px;
+}
+.logout-btn{
+    margin: 3vh 0 3vh 0;
+    padding: 3px 17px;
+    font: 2.5vh Arial;
+    font-weight: bold;
+    color: rgb(110, 0, 0);
+    background-color: white;
+    border: 2px solid rgb(177, 0, 0);
+    border-radius: 10px;
+    transition: all 0.3s ease-out;
+}
+.logout-btn:hover{
+    cursor: pointer;
+    color: white;
+    background-color: rgb(177, 0, 0);
 }
