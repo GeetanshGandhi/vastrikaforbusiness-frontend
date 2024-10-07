@@ -94,16 +94,18 @@ export default function BusinessRegistration() {
 						<label htmlFor='form-ip-contact' className="form-ip-head">Contact Number</label>
 					</div>
 				</div>
+				<div className="citycat">
 				<div className="city-wrap">
 					<div>
-						<p className="select-msg">Select City</p>
-						<select id="selectCity">
+						{/* <p className="select-msg">Select City</p> */}
+						<select id="selectCategory">
+						    <option value="city" disabled selected>Select City</option>
 							<option value="Delhi">Delhi</option>
 							<option value="Mumbai">Mumbai</option>
 							<option value="Indore">Indore</option>
 						</select>
 					</div>
-					<Popup trigger={<div className="wrapper"><button>Request a City</button></div>} 
+					<Popup trigger={<div className="wrapper"><button className='request-city-btn'> Request a City</button></div>} 
 				modal
 				nested
 			>
@@ -115,14 +117,15 @@ export default function BusinessRegistration() {
 				</div>
 				<div className="category-wrap">
 					<div>
-						<p className="select-msg">Select Category</p>
+						{/* //<p className="select-msg">Select Category</p> */}
 						<select id="selectCategory">
+						<option value="category" disabled selected>Select Category</option>
 							<option value="Banarsi">Banarsi</option>
 							<option value="Lucknowi">Lucknowi</option>
 							<option value="Maheshwari">Maheshwari</option>
 						</select>
 					</div>
-					<Popup trigger={<div className="wrapper"><button>Request a Category</button></div>} 
+					<Popup trigger={<div className="wrapper"><button className='request-category-btn'>Request a Category</button></div>} 
 				modal
 				nested
 			>
@@ -131,6 +134,7 @@ export default function BusinessRegistration() {
 						<RequestCategory close={close}/>
 				)}
 			</Popup>
+				</div>
 				</div>
 				<div className="form-row-wrap">
 					<div className="form-ip">
