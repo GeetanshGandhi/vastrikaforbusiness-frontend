@@ -2,6 +2,8 @@ import React, { useState,useEffect } from 'react';
 import './ProductItem.css';
 import img from '../images/logo.webp';
 import Popup from 'reactjs-popup';
+import { toast, ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const ProductItem = ({ product }) => {
 	const { productId, productName, description:initialDescription, price,discount:fetchedDiscount } = product || {};
@@ -43,6 +45,22 @@ const ProductItem = ({ product }) => {
 
 	const handleDeleteClick = () => {
 		console.log(`Deleting product with ID: ${productId}`);
+		fetch('/delete', {
+			method: 'POST',
+			headers: {
+				'Content-Type': 'application/json',
+			},
+			body: JSON.stringify({ productId }), 
+		})
+		.then(response => {
+			if (response.ok) {
+				toast.success(`Product ${productName} deleted successfully.`);
+				
+			} else {
+				toast.error('Failed to delete the product');
+			}
+		})
+		.catch(error => toast.error('Error: ' + error.message));
 	};
 
 	return (
@@ -134,8 +152,9 @@ const ProductItem = ({ product }) => {
                 
               </div>
               <div className="modal-footer">
-                <button onClick={() => { handleSavePrice(); close(); }}>Save</button>
-                <button onClick={close}>Cancel</button>
+			  <div className="save_btn"><button onClick={() => { handleSavePrice(); close(); }}>Save</button></div>
+                <div className="close_btn"><button onClick={close}>Cancel</button></div>
+                
               </div>
             </div>
           )}
@@ -153,8 +172,8 @@ const ProductItem = ({ product }) => {
                                 <p className='delp'>Are you sure you want to delete this product?</p>
                             </div>
                             <div className="modal-footer">
-                                <button onClick={() => { handleDeleteClick(); close(); }}>Yes, Delete</button>
-                                <button onClick={close}>Cancel</button>
+                               <div className="save_btn"><button onClick={() => { handleDeleteClick(); close(); }}>Yes, Delete</button></div> 
+                               <div className="close_btn"><button onClick={close}>Cancel</button></div> 
                             </div>
                         </div>
                     )}
