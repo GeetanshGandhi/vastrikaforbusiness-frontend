@@ -26,34 +26,46 @@
     flex-wrap: wrap;
     margin-bottom: 1.5rem;
 }
-.city-wrap{
+.city-wrap .category-wrap{
     padding: 0 10vw;
     display: flex;
     justify-content: space-between;
     align-items: center;
+    margin-bottom: 1.5rem;
+}
+city-wrap div, .category-wrap div {
+    flex-grow: 1; 
 }
 #selectcity{
-    font: 3.7vh "Ubuntu", Arial;
+    font: 4vh "Ubuntu", Arial;
 }
 
 .select-msg {
     font-family: 'Ubuntu', Arial, sans-serif;
-    font-size: 1rem;
+    font-size: 2rem;
     color: rgb(43, 43, 43);
     margin-bottom: 0.5rem;
 }
 
-#selectcity, #selectstate {
+#selectCity, #selectCategory {
     font-family: 'Ubuntu', Arial, sans-serif;
     font-size: 1rem;
-    color: rgb(43, 43, 43);
+    color: rgb(14, 13, 13);
     background-color: rgb(240, 229, 255);
     border: 2px solid rgb(192, 133, 247);
     border-radius: 5px;
     padding: 0.5rem;
-    width: 100%;
+    width: 17rem;
+    margin-right: 2rem;
+    margin-left: 1.5rem;
 }
-
+.citycat{
+    display: flex;
+   
+    margin-left: 3rem;
+    margin-right: 2rem;
+    gap: 22px;
+}
 .createpass-msg, .add-details {
     font-family: 'Ubuntu', Arial, sans-serif;
     font-size: 1.2rem;
@@ -130,7 +142,9 @@
 .reactjs-popup-overlay {
     z-index: 1000;
 }
-.request-city-btn {
+
+
+.request-city-btn, .request-category-btn {
     padding: 0.5rem 1rem;
     background-color: rgb(143, 255, 143);
     border: 2px solid rgb(0, 104, 40);
@@ -138,9 +152,15 @@
     color: black;
     cursor: pointer;
     transition: all 0.3s ease-out;
+    margin-top: 10px;
+    font-size: 0.9rem;
 }
 
-.request-city-btn:hover {
-    background-color: rgb(0, 104, 40);
-    color: white;
+.wrapper button{
+    margin-top: 1rem;
+    font-size: 1.2rem;
+    width: 15rem;
 }
+
+
+
