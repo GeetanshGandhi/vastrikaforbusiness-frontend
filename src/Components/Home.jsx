@@ -13,6 +13,7 @@ export default function Home() {
 	const [products, setproducts] = useState([])
 	useEffect(()=>{
 		if(login!==null){
+			console.log("hello");
 			if(login["approval"]==="Verified"){
 				fetch(process.env.REACT_APP_BACKEND+"product/getByOwner",{
 					headers:{"content-type":"application/json"},

@@ -27,7 +27,14 @@
 	font-family: 'Ubuntu', Arial, sans-serif;
 	margin: 8px 0;
 }
-
+.prodinfo-desc{
+	display: -webkit-box;
+	-webkit-line-clamp: 4;
+	-webkit-box-orient: vertical;
+	max-height: 100px;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
 
 .product-info p {
 	color: #555;
@@ -45,7 +52,10 @@
 	font-size: 1.2em;
 	margin-right: 8px;
 }
-
+/* .desc{
+	font: 15px Arial;
+	padding: 10px;
+} */
 
 .edit-price-button {
 	margin-right: 3vh;

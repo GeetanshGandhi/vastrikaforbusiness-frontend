@@ -76,10 +76,10 @@ export default function AddProduct(props) {
 			toast.error("Please Enter a description")
 			return;
 		}
-		if(descriptionLength(product["description"])>20){
-			toast.error("Description must not exceed 20 words.")
-			return;
-		}
+		// if(descriptionLength(product["description"])>20){
+		// 	toast.error("Description must not exceed 20 words.")
+		// 	return;
+		// }
 		if(product["price"]==-1){
 			toast.error("Please Enter a price")
 			return;

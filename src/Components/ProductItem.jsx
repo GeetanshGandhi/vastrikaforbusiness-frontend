@@ -52,7 +52,7 @@ const ProductItem = ({ product }) => {
 			</div>
 			<div className="product-info">
 				<h3>{productName}</h3>
-				<p>{description}</p>
+				<p className='prodinfo-desc'>{description}</p>
 				<div className="price-display">
 					{isEditing ? (
 						<div className="price-edit">
