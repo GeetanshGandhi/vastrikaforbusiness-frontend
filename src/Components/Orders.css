@@ -47,7 +47,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-top: 1vh;
+    margin: 2vh 0;
 }
 .pending-left-wrap{
     width: 20%;
@@ -91,7 +91,8 @@
 }
 .update-order-btn{
     margin-top: 2vh;
-    padding: 2px 40px;
+    padding: 2px 0;
+    width: 100%;
     font: 2.5vh "Poppins", Arial;
     color: navy;
     font-weight: bold;

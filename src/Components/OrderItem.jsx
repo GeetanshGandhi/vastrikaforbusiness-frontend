@@ -57,7 +57,7 @@ export default function OrderItem({item, updateFunction}) {
                 item.status==="Placed" &&
                 <div className="wrapper">
                     <button onClick={updateOrder} className='update-order-btn'>Send out for Delivery</button>
-                </div>
+                 </div>
                 }
             </div>
         </div>

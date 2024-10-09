@@ -21,10 +21,10 @@ function App() {
 	},[])
 	const router = createBrowserRouter([
 		{
-			path:"/", element:<><Navbar/>{login===null?<LandingPage/>:<Home/>}<Footer/></>
+			path:"/", element:<><Navbar/>{login===null?<LandingPage/>:<Home/>}<><Footer/></></>
 		},
 		{
-			path:"/home", element: <><Navbar/><Home/></>
+			path:"/home", element: <><Navbar/><Home/><Footer/></>
 		},
 		{
 			path:"/addProd", element: <><Navbar/><AddProduct/></>

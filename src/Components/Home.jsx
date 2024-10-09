@@ -51,6 +51,11 @@ export default function Home() {
 			})
 		}, 2000)
 	}
+	const removeProdFromList = (item)=>{
+		setproducts(products.filter((element)=>{
+			return element!==item
+		}))
+	}
 	return (
 		<div className='super-nonflex-container'>
 			{
@@ -78,7 +83,7 @@ export default function Home() {
 			</Popup>
     		{
 				products.map((product, index) => (
-				<ProductItem key={index} product={product} />
+				<ProductItem key={index} product={product} removeProdFromList={removeProdFromList} />
 				))
 			}
             </div>

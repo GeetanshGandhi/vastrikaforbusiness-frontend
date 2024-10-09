@@ -1,11 +1,10 @@
 import React, { useState,useEffect } from 'react';
 import './ProductItem.css';
-import img from '../images/logo.webp';
 import Popup from 'reactjs-popup';
-import { toast, ToastContainer } from 'react-toastify';
+import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
-const ProductItem = ({ product }) => {
+const ProductItem = ({ product , removeProdFromList}) => {
 	const { productId, productName, description:initialDescription, price,discount:fetchedDiscount } = product || {};
 
 	const [isEditing, setIsEditing] = useState(false);
@@ -45,7 +44,7 @@ const ProductItem = ({ product }) => {
 
 	const handleDeleteClick = () => {
 		console.log(`Deleting product with ID: ${productId}`);
-		fetch('/delete', {
+		fetch(process.env.REACT_APP_BACKEND+'product/delete', {
 			method: 'POST',
 			headers: {
 				'Content-Type': 'application/json',
@@ -54,6 +53,7 @@ const ProductItem = ({ product }) => {
 		})
 		.then(response => {
 			if (response.ok) {
+				removeProdFromList(product)
 				toast.success(`Product ${productName} deleted successfully.`);
 				
 			} else {

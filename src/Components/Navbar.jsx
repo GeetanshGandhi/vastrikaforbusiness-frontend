@@ -25,7 +25,7 @@ export default function Navbar() {
     return (
         <nav>
             <div className="nav-left-wrapper">
-                <img id="nav-logo" src={require("../images/logo.webp")} alt="logo" />
+                <img id="nav-logo" src={require("../images/logo.png")} alt="logo" />
                 <h1 className="title-bigletter">V</h1>
                 <div style={{padding:"0"}}>
                     <h1 className="title">astrika</h1>
@@ -51,9 +51,9 @@ export default function Navbar() {
                             <img src={require("../images/icons/homeIcon.png")} alt="home" />
                             <p>Home</p>
                         </Link>
-                        <div className="hamburger">
+                        <div onClick={toggleSubmenu} className="hamburger">
                             <img className='hambg-icn' src={require("../images/icons/hamburger.png")} alt="" />
-                            <p onClick={toggleSubmenu} className="dp-init">Options</p>
+                            <p className="dp-init">Options</p>
                         </div>
                     </div>
                     
