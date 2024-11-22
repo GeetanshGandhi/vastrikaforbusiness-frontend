@@ -3,6 +3,7 @@ import Popup from 'reactjs-popup'
 import AddProduct from './AddProduct'
 import ProductItem from './ProductItem'
 import './Home.css'
+import { useNavigate } from 'react-router-dom'
 export default function Home() {
 	const [login, setlogin] = useState(null)
 	useEffect(()=>{
@@ -56,6 +57,7 @@ export default function Home() {
 			return element!==item
 		}))
 	}
+	const navigate = useNavigate();
 	return (
 		<div className='super-nonflex-container'>
 			{
@@ -66,21 +68,10 @@ export default function Home() {
 				: <>
 							<p className="your-prod-msg">Your Products</p>
 			<div className="products-container">
-			<Popup
-			trigger={
-				<div className="goto-add-prod-container">
+				<div onClick={()=>navigate("/addProd")} className="goto-add-prod-container">
 					<img id="addprod-icon" src={require("../images/icons/addIcon.png")} alt="add"/>
 					<p className="add-prod-msg">Add</p>
 				</div>
-			} 
-				modal
-				nested
-			>
-				{
-					close=>(
-						<AddProduct close={close} refreshProducts={refreshProducts}/>
-				)}
-			</Popup>
     		{
 				products.map((product, index) => (
 				<ProductItem key={index} product={product} removeProdFromList={removeProdFromList} />

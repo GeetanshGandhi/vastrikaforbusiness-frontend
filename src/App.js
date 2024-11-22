@@ -52,6 +52,9 @@ function App() {
 		},
 		{
 			path: "completedOrders", element: <><Navbar/><Orders status={"Complete"}/><Footer/></>
+		},
+		{
+			path: "/addProd", element: <><Navbar/><AddProduct/></>
 		}
 	])
 	return (

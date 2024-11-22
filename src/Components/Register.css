@@ -36,9 +36,6 @@
 city-wrap div, .category-wrap div {
     flex-grow: 1; 
 }
-#selectcity{
-    font: 4vh "Ubuntu", Arial;
-}
 
 .select-msg {
     font-family: 'Ubuntu', Arial, sans-serif;
@@ -47,17 +44,23 @@ city-wrap div, .category-wrap div {
     margin-bottom: 0.5rem;
 }
 
-#selectCity, #selectCategory {
+#selectcity, #selectcat {
     font-family: 'Ubuntu', Arial, sans-serif;
-    font-size: 1rem;
+    font-size: 1.2rem;
     color: rgb(14, 13, 13);
     background-color: rgb(240, 229, 255);
     border: 2px solid rgb(192, 133, 247);
     border-radius: 5px;
-    padding: 0.5rem;
+    padding: 0.3rem;
     width: 17rem;
     margin-right: 2rem;
     margin-left: 1.5rem;
+    transition: all 0.2s ease-out;
+}
+#selectcity:hover, #selectcat:hover{
+    cursor: pointer;
+    background-color: rgb(61, 0, 61);
+    color:white;
 }
 .citycat{
     display: flex;

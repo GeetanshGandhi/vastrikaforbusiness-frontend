@@ -11,17 +11,11 @@ const ProductItem = ({ product , removeProdFromList}) => {
 	const [newPrice, setNewPrice] = useState(price);
 	const [discount, setDiscount] = useState(fetchedDiscount || 0);
 	const [description, setDescription] = useState(initialDescription || '');
-	const [isDescriptionEditing, setIsDescriptionEditing] = useState(false);
 
 	useEffect(() => {
 		setDiscount(fetchedDiscount || 0);
 	}, [fetchedDiscount]);
 	
-	const handleEditPriceClick = () => {
-		setIsEditing(!isEditing);
-		setIsDescriptionEditing(false);};
-
-
 	const handleSavePrice = () => {
 		const updatedPrice = parseFloat(newPrice);
 		if (!isNaN(updatedPrice)) {
@@ -31,15 +25,6 @@ const ProductItem = ({ product , removeProdFromList}) => {
 			console.error('Invalid price value');
 		}
 	};
-	const handleSaveDescription = () => {
-		if (description.trim() !== '') {
-			console.log(`Saving new description: ${description}`);
-			setIsDescriptionEditing(false);
-		} else {
-			console.error('Description cannot be empty');
-		}
-	};
-
 	const discountedPrice = parseFloat(newPrice) * (1 - parseFloat(discount) / 100);
 
 	const handleDeleteClick = () => {
@@ -72,7 +57,7 @@ const ProductItem = ({ product , removeProdFromList}) => {
 				<h3>{productName}</h3>
 				<p className='prodinfo-desc'>{description}</p>
 				<div className="price-display">
-					{isEditing ? (
+					{isEditing ?(
 						<div className="price-edit">
 							<input
 								type="number"

@@ -7,6 +7,28 @@ import RequestCity from './RequestCity';
 import RequestCategory from './RequestCategory';
 
 export default function BusinessRegistration() {
+	useEffect(()=>{
+		const cities = document.getElementById("selectcity")
+		const categories = document.getElementById("selectcat")
+		fetch(process.env.REACT_APP_BACKEND+"city/getAllStr",{
+			method: "GET", headers: {"content-type":"application/json"}
+		}).then((res)=>res.json())
+		.then((data)=>{
+			for(let i = 0; i<data.length; i++){
+				let option = `<option> value=${data[i]} </option>`
+				cities.insertAdjacentHTML("beforeend", option);
+			}
+		}).then(()=>{
+			fetch(process.env.REACT_APP_BACKEND+"category/getAll",{
+				method: "GET", headers: {"content-type":"application/json"}
+			}).then((res)=>res.json()).then((data)=>{
+				for(let i = 0; i<data.length; i++){
+					let option = `<option> value=${data[i]} </option>`
+					categories.insertAdjacentHTML("beforeend", option);
+				}
+			})
+		})
+	},[])
 	let regDetails = {
 		name: '',
 		email: '',
@@ -98,11 +120,8 @@ export default function BusinessRegistration() {
 				<div className="city-wrap">
 					<div>
 						{/* <p className="select-msg">Select City</p> */}
-						<select id="selectCategory">
+						<select id="selectcity">
 						    <option value="city" disabled selected>Select City</option>
-							<option value="Delhi">Delhi</option>
-							<option value="Mumbai">Mumbai</option>
-							<option value="Indore">Indore</option>
 						</select>
 					</div>
 					<Popup trigger={<div className="wrapper"><button className='request-city-btn'> Request a City</button></div>} 
@@ -118,11 +137,8 @@ export default function BusinessRegistration() {
 				<div className="category-wrap">
 					<div>
 						{/* //<p className="select-msg">Select Category</p> */}
-						<select id="selectCategory">
+						<select id="selectcat">
 						<option value="category" disabled selected>Select Category</option>
-							<option value="Banarsi">Banarsi</option>
-							<option value="Lucknowi">Lucknowi</option>
-							<option value="Maheshwari">Maheshwari</option>
 						</select>
 					</div>
 					<Popup trigger={<div className="wrapper"><button className='request-category-btn'>Request a Category</button></div>} 

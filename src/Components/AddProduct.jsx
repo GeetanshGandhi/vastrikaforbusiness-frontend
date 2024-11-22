@@ -1,6 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react'
 import './AddProduct.css'
 import { toast } from 'react-toastify'
+import { useNavigate } from 'react-router-dom';
 
 function checkImageExtension(file) {
 	const allowedExtensions = [".jpg", ".jpeg", ".png"]; // Add more if needed
@@ -9,12 +10,17 @@ function checkImageExtension(file) {
   
 	return allowedExtensions.includes(fileExtension);
 }
-function descriptionLength(str) {
-    const array = str.trim().split(/\s+/);
-    return array.length;
+function isValidLength(str) {
+	if(str.trim()==="") return false;
+	const num = parseFloat(str);
+	if(isNaN(num) && num.toString() !== str) return false;
+	let arr = str.split(".")
+	if(arr[1].length>2) return false;
+	return true;
 }
+
 export default function AddProduct(props) {
-	
+	const navigate = useNavigate();
 	const [login, setlogin] = useState(null)
 	useEffect(()=>{
 		if(localStorage.getItem("vastrikaBusiness")!==null){
@@ -24,9 +30,18 @@ export default function AddProduct(props) {
 
 	//defining product details
 	const [product, setproduct] = useState({
-		productName:'', description:'', price:-1, discount: -1, quantityAvailable:-1
+		productName:'', description:'', price:-1, discount: -1, quantityAvailable:-1,
+		blousePiece:'', material:'', occasion: '', length: 0.0, pattern: ''
 	})
 	const handleFieldChange = (e, field) => {
+		if(field==="length"){
+			if(isNaN(e.target.value) || e.target.value.charAt(e.target.value.length-1)==="."){
+				toast.error("Invalid value for field \"length\"");
+				return;
+			}
+			else setproduct({ ...product, [field]: e.target.value });
+			return;
+		}
 		setproduct({ ...product, [field]: e.target.value });
 	}
 	const inputRef = useRef(null)
@@ -53,10 +68,10 @@ export default function AddProduct(props) {
 			toast.error("Please Upload an Image")
 			return;
 		}
-		// if(!checkImageExtension(image)){
-		// 	toast.error("Image must be of Valid formats");
-		//  return;
-		// }
+		if(!checkImageExtension(image)){
+			toast.error("Image must be of Valid formats");
+		 return;
+		}
 		if(image.size>5242880){
 			document.getElementById("5mb-msg").style.color = "red"
 			document.getElementById("5mb-msg").style.fontWeight = "bold"
@@ -76,10 +91,6 @@ export default function AddProduct(props) {
 			toast.error("Please Enter a description")
 			return;
 		}
-		// if(descriptionLength(product["description"])>20){
-		// 	toast.error("Description must not exceed 20 words.")
-		// 	return;
-		// }
 		if(product["price"]==-1){
 			toast.error("Please Enter a price")
 			return;
@@ -90,6 +101,10 @@ export default function AddProduct(props) {
 		}
 		if(product["discount quantityAvailable"]==-1){
 			toast.error("Please Enter a discount (Enter 0 if no discount)")
+			return;
+		}
+		if(!isValidLength(product.length)){
+			toast.error("Invalid Product length!");
 			return;
 		}
 		let formdata = new FormData();
@@ -114,8 +129,7 @@ export default function AddProduct(props) {
 		}
 		toast.success("product Added Successfully!")
 		props.refreshProducts()
-		props.close()
-		
+		navigate(-1)		
 	}
 	return (	
 		<div>
@@ -158,20 +172,44 @@ export default function AddProduct(props) {
 						</div>
 					<input onChange={(e)=>handleImageUpload(e)} ref={inputRef} hidden id="image-ip" type="file" />
 					<p className="upload-msg">
-						Upload 1:1 ratio image of the product for the best experience.<br/>
-						<span id="5mb-msg" style={{color:"green"}}>
-							Image must strictly be of <b>.jpg or .png</b> format and less than 5MB
-						</span>
+						Upload 1:1 ratio image of the product for the best experience.
+					</p>
+					<p className="upload-msg" style={{color:"green"}}>
+						Image must strictly be of <b>.jpg or .png</b> format and less than 5MB
 					</p>
 				</div>
 			</div>
+			<div className="wrapper" style={{margin:"0 60px"}}>
+				<div className="form-ip">
+					<input onChange={(e)=>handleFieldChange(e,"material")} id="prod-mtrl" placeholder=" " type="text" className="form-ip-input" />
+					<label htmlFor="prod-mtrl" className="form-ip-head">Material</label>
+				</div>
+			</div>
+			<div className="wrapper" style={{margin:"0 60px"}}>
+				<div className="form-ip">
+					<input onChange={(e)=>handleFieldChange(e,"pattern")} id="prod-patt" placeholder=" " type="text" className="form-ip-input" />
+					<label htmlFor="prod-patt" className="form-ip-head">Pattern</label>
+				</div>
+			</div>
+			<div className="wrapper" style={{margin:"0 60px"}}>
+				<div className="form-ip">
+					<input onChange={(e)=>handleFieldChange(e,"occasion")} id="prod-ocsn" placeholder=" " type="text" className="form-ip-input" />
+					<label htmlFor="prod-ocsn" className="form-ip-head">Occasion</label>
+				</div>
+			</div>
+			<div className="wrapper" style={{margin:"0 60px"}}>
+				<div className="form-ip">
+					<input onChange={(e)=>handleFieldChange(e,"length")} id="prod-len" placeholder=" " type="text" className="form-ip-input" />
+					<label htmlFor="prod-len" className="form-ip-head">Length in meters (upto 2 decimel places)</label>
+				</div>
+			</div>
 			<p className="add-desc-msg">
-				Add a small <b>Description</b> of the product in not more than 20 words:<br/>
+				Add a small <b>Description</b> of the product:<br/>
 				Write a good description to attract more customers
 			</p>
 			<textarea onChange={(e)=>handleFieldChange(e,"description")} name="desc" id="prod-desc" rows={4}></textarea>
-			<div className="btn-wrapper">
-				<button className='close-btn' onClick={()=>props.close()}>Close</button>
+			<div className="addprod-btn-wrapper">
+				<button className='close-btn' onClick={()=>navigate(-1)}>Close</button>
 				<button className='add-prod-btn' onClick={handleAddProdClick}>Add</button>
 			</div>			
 		</div>
