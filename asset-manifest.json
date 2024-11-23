@@ -1,0 +1,32 @@
+{
+  "files": {
+    "main.css": "/vastrikaforbusiness-frontend/static/css/main.9c0341c3.css",
+    "main.js": "/vastrikaforbusiness-frontend/static/js/main.ffcb6e4e.js",
+    "static/js/453.2abfda05.chunk.js": "/vastrikaforbusiness-frontend/static/js/453.2abfda05.chunk.js",
+    "static/media/landing4.png": "/vastrikaforbusiness-frontend/static/media/landing4.a6ff3fd607ba875a1ddf.png",
+    "static/media/landing3.png": "/vastrikaforbusiness-frontend/static/media/landing3.5c423366018b31bfc433.png",
+    "static/media/landing2.png": "/vastrikaforbusiness-frontend/static/media/landing2.1b609e859e7515eb64da.png",
+    "static/media/landing1.png": "/vastrikaforbusiness-frontend/static/media/landing1.1ecaa9cf2a5b943c5473.png",
+    "static/media/logo.png": "/vastrikaforbusiness-frontend/static/media/logo.2a7d27306acac9842ccc.png",
+    "static/media/addIcon.png": "/vastrikaforbusiness-frontend/static/media/addIcon.5081d3fd1e501877e14b.png",
+    "static/media/userIcon.png": "/vastrikaforbusiness-frontend/static/media/userIcon.557587208eb9e232f2ca.png",
+    "static/media/completeOrderIcon.png": "/vastrikaforbusiness-frontend/static/media/completeOrderIcon.85f021da809bc3d9b0d3.png",
+    "static/media/dispatchedOrderIcon.png": "/vastrikaforbusiness-frontend/static/media/dispatchedOrderIcon.5806002ad61878084231.png",
+    "static/media/profilepic.png": "/vastrikaforbusiness-frontend/static/media/profilepic.c920752422c11377083e.png",
+    "static/media/orderIcon.png": "/vastrikaforbusiness-frontend/static/media/orderIcon.bb44f817c31a608f5aae.png",
+    "static/media/uploadImage.png": "/vastrikaforbusiness-frontend/static/media/uploadImage.5b14dcfb805effdf5f49.png",
+    "static/media/Insta.svg": "/vastrikaforbusiness-frontend/static/media/Insta.a11018c610e15251b9c6139227a3cfcf.svg",
+    "index.html": "/vastrikaforbusiness-frontend/index.html",
+    "static/media/Youtube.svg": "/vastrikaforbusiness-frontend/static/media/Youtube.cc1bdd0895d8bf2afb7ef47cf5b75210.svg",
+    "static/media/LinkedinIcon.svg": "/vastrikaforbusiness-frontend/static/media/LinkedinIcon.db07fa4e01a38ae9d1a0634e71d0ef69.svg",
+    "static/media/Facebook.svg": "/vastrikaforbusiness-frontend/static/media/Facebook.7f7396a20758b0f66b5423d1e0cbb12b.svg",
+    "static/media/Twitter.svg": "/vastrikaforbusiness-frontend/static/media/Twitter.f42c1b671597f44f57c2e33db732171a.svg",
+    "main.9c0341c3.css.map": "/vastrikaforbusiness-frontend/static/css/main.9c0341c3.css.map",
+    "main.ffcb6e4e.js.map": "/vastrikaforbusiness-frontend/static/js/main.ffcb6e4e.js.map",
+    "453.2abfda05.chunk.js.map": "/vastrikaforbusiness-frontend/static/js/453.2abfda05.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.9c0341c3.css",
+    "static/js/main.ffcb6e4e.js"
+  ]
+}
