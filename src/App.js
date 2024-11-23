@@ -1,4 +1,4 @@
-import { createBrowserRouter, RouterProvider } from 'react-router-dom';
+import { createHashRouter, RouterProvider } from 'react-router-dom';
 import './App.css';
 import Navbar from './Components/Navbar';
 import Home from './Components/Home';
@@ -19,7 +19,7 @@ function App() {
 			setlogin(localStorage.getItem("vastrikaBusiness"))
 		}
 	},[])
-	const router = createBrowserRouter([
+	const router = createHashRouter([
 		{
 			path:"/", element:<><Navbar/>{login===null?<LandingPage/>:<Home/>}<><Footer/></></>
 		},
