@@ -2,39 +2,48 @@ import React, { useEffect, useRef, useState } from 'react'
 import './RequestCity.css'
 import { toast } from 'react-toastify'
 export default function RequestCity(props) {
-    const stateList = [ "Andhra Pradesh",
-        "Arunachal Pradesh",
-        "Assam",
-        "Bihar",
-        "Chhattisgarh",
-        "Goa",
-        "Gujarat",
-        "Haryana",
-        "Himachal Pradesh",
-        "Jharkhand",
-        "Karnataka",
-        "Kerala",
-        "Madhya Pradesh",
-        "Maharashtra",
-        "Manipur",
-        "Meghalaya",
-        "Mizoram",
-        "Nagaland",
-        "Odisha",
-        "Punjab",
-        "Rajasthan",
-        "Sikkim",
-        "Tamil Nadu",
-        "Telangana",
-        "Tripura",
-        "Uttar Pradesh",
-        "Uttarakhand",
-        "West Bengal"]
+    const stateList = { "AP": "Andhra Pradesh",
+  "AR": "Arunachal Pradesh",
+  "AS": "Assam",
+  "BR": "Bihar",
+  "CG": "Chhattisgarh",
+  "GA": "Goa",
+  "GJ": "Gujarat",
+  "HR": "Haryana",
+  "HP": "Himachal Pradesh",
+  "JH": "Jharkhand",
+  "KA": "Karnataka",
+  "KL": "Kerala",
+  "MP": "Madhya Pradesh",
+  "MH": "Maharashtra",
+  "MN": "Manipur",
+  "ML": "Meghalaya",
+  "MZ": "Mizoram",
+  "NL": "Nagaland",
+  "OD": "Odisha",
+  "PB": "Punjab",
+  "RJ": "Rajasthan",
+  "SK": "Sikkim",
+  "TN": "Tamil Nadu",
+  "TG": "Telangana",
+  "TR": "Tripura",
+  "UP": "Uttar Pradesh",
+  "UK": "Uttarakhand",
+  "WB": "West Bengal",
+  "AN": "Andaman and Nicobar Islands",
+  "CH": "Chandigarh",
+  "DH": "Dadra and Nagar Haveli and Daman and Diu",
+  "DL": "Delhi",
+  "JK": "Jammu and Kashmir",
+  "LA": "Ladakh",
+  "LD": "Lakshadweep",
+  "PY": "Puducherry"}
 
     useEffect(() => {
+        let keys = Object.keys(stateList);
         const stateSelect = document.getElementById("state-select")
-        stateList.forEach((item, index) => {
-            let option = `<option ${index === 0 && "selected"} value=${item}>${item}</option>`
+        keys.forEach((item, index) => {
+            let option = `<option ${index === 0 && "selected"} value=${item}>${stateList[item]}</option>`
             stateSelect.insertAdjacentHTML("beforeend", option)
         })
     }, [])
@@ -81,6 +90,7 @@ export default function RequestCity(props) {
             console.error("Error requesting city:", error);
             toast.error("Something went wrong. Please try again later.");
         }
+        props.close();
     };
 
     return (

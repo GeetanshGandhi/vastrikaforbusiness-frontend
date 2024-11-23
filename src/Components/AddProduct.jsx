@@ -19,7 +19,7 @@ function isValidLength(str) {
 	return true;
 }
 
-export default function AddProduct(props) {
+export default function AddProduct() {
 	const navigate = useNavigate();
 	const [login, setlogin] = useState(null)
 	useEffect(()=>{
@@ -31,7 +31,7 @@ export default function AddProduct(props) {
 	//defining product details
 	const [product, setproduct] = useState({
 		productName:'', description:'', price:-1, discount: -1, quantityAvailable:-1,
-		blousePiece:'', material:'', occasion: '', length: 0.0, pattern: ''
+		blousePiece:true, material:'', occasion: '', length: 0.0, pattern: ''
 	})
 	const handleFieldChange = (e, field) => {
 		if(field==="length"){
@@ -128,8 +128,7 @@ export default function AddProduct(props) {
 			}
 		}
 		toast.success("product Added Successfully!")
-		props.refreshProducts()
-		navigate(-1)		
+		navigate(-1)
 	}
 	return (	
 		<div>
@@ -172,9 +171,9 @@ export default function AddProduct(props) {
 						</div>
 					<input onChange={(e)=>handleImageUpload(e)} ref={inputRef} hidden id="image-ip" type="file" />
 					<p className="upload-msg">
-						Upload 1:1 ratio image of the product for the best experience.
+						Upload portrait ratio image of the product for the best experience.
 					</p>
-					<p className="upload-msg" style={{color:"green"}}>
+					<p className="upload-msg" id="5mb-msg" style={{color:"green"}}>
 						Image must strictly be of <b>.jpg or .png</b> format and less than 5MB
 					</p>
 				</div>
@@ -202,6 +201,13 @@ export default function AddProduct(props) {
 					<input onChange={(e)=>handleFieldChange(e,"length")} id="prod-len" placeholder=" " type="text" className="form-ip-input" />
 					<label htmlFor="prod-len" className="form-ip-head">Length in meters (upto 2 decimel places)</label>
 				</div>
+			</div>
+			<div className="wrapper">
+				<p className="isBlouse">Blouse Piece Included?</p>
+				<select name="isblouse" id="blouse-piece" onChange={(e)=>handleFieldChange(e,"blousePiece")}>
+					<option value={true}>Yes</option>
+					<option value={false}>No</option>
+				</select>
 			</div>
 			<p className="add-desc-msg">
 				Add a small <b>Description</b> of the product:<br/>

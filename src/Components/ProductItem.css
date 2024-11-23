@@ -34,7 +34,10 @@
 	overflow: hidden;
 	text-overflow: ellipsis;
 }
-
+.prodinfo-desc{
+	overflow: hidden;
+	max-height: 50px;
+}
 
 .product-info p {
 	color: #555;

@@ -34,3 +34,21 @@
     align-items: center;
     flex-wrap: wrap;
 }
+.addn-msg{
+    text-align: center;
+    padding: 2vh 0 10vh 0;
+    font: 3vh "Ubuntu", Arial;
+}
+.updatecitycat-btn{
+    padding: 5px 20px;
+    font: 2vh "Ubuntu", Arial;
+    background-color: rgb(234, 150, 255);
+    border: 2px solid purple;
+    border-radius: 10px;
+    transition: all 0.2s ease-out;
+}
+.updatecitycat-btn:hover{
+    background-color: purple;
+    color: white;
+    cursor: pointer;
+}

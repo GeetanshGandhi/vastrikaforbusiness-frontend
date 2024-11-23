@@ -31,9 +31,11 @@ export default function RequestCategory(props) {
             });
 
             if (response.ok) {
-                const result = await response.json();
-                toast.success(`Category request has been submitted successfully for: ${result.categoryName}`);
-                setCategoryName(""); 
+                console.log("hello");
+                // const result = await response.json();
+                toast.success("Request Submitted Successfully!");
+                console.log("helo1");
+                // setCategoryName(""); 
             } else {
                 const error = await response.json();
                 toast.error(`Error: ${error.message}`);
@@ -42,6 +44,7 @@ export default function RequestCategory(props) {
             console.error("Error requesting category:", error);
             toast.error("Something went wrong. Please try again later.");
         }
+        props.close();
     };
 
     return (
@@ -66,7 +69,6 @@ export default function RequestCategory(props) {
                 <button className='close-btn' onClick={() => props.close()}>Close</button>
                 <button className='request-category-btn' onClick={RequestCategory}>Request</button>
             </div>
-            <ToastContainer/>
         </div>
     );
 }

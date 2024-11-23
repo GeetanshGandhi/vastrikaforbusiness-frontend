@@ -76,6 +76,17 @@
     padding: 1px 0 1px 10px;
     font: 3.5vh "Ubuntu", Arial;
 }
+.isBlouse{
+    margin-top: 14px;
+    font: 25px "Ubuntu", Arial;
+}
+#blouse-piece{
+    margin: 14px 0 0 15px;
+    padding: 2px 20px;
+    font: 23px "Ubuntu", Arial;
+    border: 2px solid purple;
+    background-color: rgb(255, 235, 255);
+}
 .add-desc-msg{
     margin: 4vh 2vw 2vh 2vw;
     font: 2.7vh "Ubuntu", Arial;

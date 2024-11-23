@@ -15,7 +15,7 @@ export default function BusinessRegistration() {
 		}).then((res)=>res.json())
 		.then((data)=>{
 			for(let i = 0; i<data.length; i++){
-				let option = `<option> value=${data[i]} </option>`
+				let option = `<option value=${data[i]==="Unregistered"?"000000":data[i]}>${data[i]==="Unregistered"? "Not in the List" : data[i]}</option>`
 				cities.insertAdjacentHTML("beforeend", option);
 			}
 		}).then(()=>{
@@ -23,23 +23,12 @@ export default function BusinessRegistration() {
 				method: "GET", headers: {"content-type":"application/json"}
 			}).then((res)=>res.json()).then((data)=>{
 				for(let i = 0; i<data.length; i++){
-					let option = `<option> value=${data[i]} </option>`
+					let option = `<option value=${data[i]}>${data[i]==="uncategorized"? "Not in the List":data[i]}</option>`
 					categories.insertAdjacentHTML("beforeend", option);
 				}
 			})
 		})
 	},[])
-	let regDetails = {
-		name: '',
-		email: '',
-		businessName: '',
-		contactNumber: '',
-		city: '',
-		requestCity: '',
-		address: '',
-		bankAccountNumber: '',
-		gstin: ''
-	};
 
 	const [showPass, setShowPass] = useState(false);
 	const handleTogglePass = () => {
@@ -64,34 +53,58 @@ export default function BusinessRegistration() {
 			}
 		}
 
-		regDetails["name"] = document.getElementById("form-ip-name").value;
-		regDetails["email"] = document.getElementById("form-ip-email").value;
+		let regDetails = {
+			businessOwnerName: '',
+			ownerEmail: '',
+			businessName: '',
+			contactNo: '',
+			address: '',
+			gstin: '',
+			approval: 'Unverified',
+			password: ''
+		};
+		regDetails["businessOwnerName"] = document.getElementById("form-ip-name").value;
+		regDetails["ownerEmail"] = document.getElementById("form-ip-email").value;
 		regDetails["businessName"] = document.getElementById("form-ip-businessName").value;
-		regDetails["contactNumber"] = document.getElementById("form-ip-contact").value;
-		regDetails["city"] = document.getElementById("selectCity").value;
-		regDetails["requestCity"] = document.getElementById("form-ip-requestCity").value;
+		regDetails["contactNo"] = document.getElementById("form-ip-contact").value;
 		regDetails["address"] = document.getElementById("form-ip-address").value;
-		regDetails["bankAccountNumber"] = document.getElementById("form-ip-bankAccount").value;
 		regDetails["gstin"] = document.getElementById("form-ip-gstin").value;
+		regDetails["password"] = document.getElementById("form-ip-passwd").value;
+		let form = new FormData();
+		form.append("businessDet", JSON.stringify(regDetails));
+		form.append("pinCode", document.getElementById("selectcity").value);
+		form.append("categoryName", document.getElementById("selectcat").value);
 
-	
-
-		let res = await fetch(process.env.REACT_APP_BACKEND + "business/registerBusiness", {
-			headers: { "content-type": "application/json" },
-			body: JSON.stringify(regDetails),
+		let result = await fetch(process.env.REACT_APP_BACKEND + "business/register", {
+			body: form,
 			method: "POST"
 		});
-		res = await res.text();
-
-		if (res === "Exist") {
-			toast.error("Business with this email ID already exists!");
-			return;
+		if(result.ok){
+			const res = await result.text();
+		
+			if (res === "Exist") {
+				toast.error("Business with this email ID already exists!");
+				return;
+			}
+			toast.success("Registration Successful! Please log in to continue.");
+			navigate("/businessLogin");
 		}
-		toast.success("Registration Successful! Please log in to continue.");
-		navigate("/businessLogin");
+		else{
+			toast.error("Cannot Register Business!");
+		}
 		
 	}
 
+	const handleChangeInSelection = (e, type)=>{
+		if(type==="city") {
+			if(e.target.value==="000000")
+				document.getElementsByClassName("request-city-btn")[0].style.display="block";
+		}
+		else{
+			if(e.target.value==="uncategorized")
+				document.getElementsByClassName("request-category-btn")[0].style.display="block";
+		}
+	}
 	return (
 		<div className='super-flex-container'>
 			<div className="register-form">
@@ -120,11 +133,11 @@ export default function BusinessRegistration() {
 				<div className="city-wrap">
 					<div>
 						{/* <p className="select-msg">Select City</p> */}
-						<select id="selectcity">
-						    <option value="city" disabled selected>Select City</option>
+						<select id="selectcity" onChange={(e)=>handleChangeInSelection(e, "city")}>
+						    <option disabled selected>Select City</option>
 						</select>
 					</div>
-					<Popup trigger={<div className="wrapper"><button className='request-city-btn'> Request a City</button></div>} 
+					<Popup trigger={<div className="wrapper"><button style={{display:"none"}} className='request-city-btn'> Request a City</button></div>} 
 				modal
 				nested
 			>
@@ -136,12 +149,11 @@ export default function BusinessRegistration() {
 				</div>
 				<div className="category-wrap">
 					<div>
-						{/* //<p className="select-msg">Select Category</p> */}
-						<select id="selectcat">
-						<option value="category" disabled selected>Select Category</option>
+						<select id="selectcat" onChange={(e)=>handleChangeInSelection(e, "category")}>
+						<option disabled selected>Select Category</option>
 						</select>
 					</div>
-					<Popup trigger={<div className="wrapper"><button className='request-category-btn'>Request a Category</button></div>} 
+					<Popup trigger={<div className="wrapper"><button style={{display:"none"}} className='request-category-btn'>Request a Category</button></div>} 
 				modal
 				nested
 			>
@@ -163,10 +175,6 @@ export default function BusinessRegistration() {
 					<div className="form-ip">
 						<input placeholder=" " id="form-ip-address" type="text" className="form-ip-input" />
 						<label htmlFor='form-ip-address' className="form-ip-head">Address</label>
-					</div>
-					<div className="form-ip">
-						<input placeholder=" " id="form-ip-bankAccount" type="text" className="form-ip-input" />
-						<label htmlFor='form-ip-bankAccount' className="form-ip-head">Bank Account Number</label>
 					</div>
 				</div>
 				<div className="form-row-wrap">
