@@ -54,6 +54,9 @@ function App() {
 			path: "completedOrders", element: <><Navbar/><Orders status={"Complete"}/><Footer/></>
 		},
 		{
+			path: "cancelledOrders", element: <><Navbar/><Orders status={"Cancelled"}/><Footer/></>
+		},
+		{
 			path: "/addProd", element: <><Navbar/><AddProduct/></>
 		}
 	])

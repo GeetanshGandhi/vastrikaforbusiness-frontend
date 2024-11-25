@@ -78,16 +78,22 @@ export default function Navbar() {
                         <p className='submenu-link-in-p'>Packed Orders</p>
                     </div>
                 </Link>
-                <Link className='submenu-link' to='/'>
-                    <div className="submenu-link-in">
-                        <img className='submenu-link-img' src={require("../images/icons/userIcon.png")} alt="loc" />
-                        <p className='submenu-link-in-p'>View Full Profile</p>
-                    </div>
-                </Link>
                 <Link className='submenu-link'to='/completedOrders'>
                     <div className="submenu-link-in">
                         <img className='submenu-link-img' src={require("../images/icons/completeOrderIcon.png")} alt="loc" />
                         <p className='submenu-link-in-p'>Completed Orders</p>
+                    </div>
+                </Link>
+                <Link className='submenu-link'to='/cancelledOrders'>
+                    <div className="submenu-link-in">
+                        <img className='submenu-link-img' src={require("../images/icons/cancelledOrderIcon.png")} alt="loc" />
+                        <p className='submenu-link-in-p'>Cancelled Orders</p>
+                    </div>  
+                </Link>
+                <Link className='submenu-link' to='/'>
+                    <div className="submenu-link-in">
+                        <img className='submenu-link-img' src={require("../images/icons/userIcon.png")} alt="loc" />
+                        <p className='submenu-link-in-p'>View Full Profile</p>
                     </div>
                 </Link>
                 <div className="wrapper">
