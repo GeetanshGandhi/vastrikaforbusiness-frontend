@@ -62,7 +62,6 @@ export default function Navbar() {
                     <img className='dp' src={require("../images/icons/profilepic.png")} alt="dp" />
                     <div className="profile-info">
                         <p className="user-name">{login["businessName"]}</p>
-                        <p className="user-add">{login["houseNumber"]+", "+login["streetBuildingName"]+", "+login["landmark"]+", "+login["city"]+", "+login["state"]}</p>
                     </div>
                 </div>
                 <hr style={{borderBottom:"1px solid rgb(223,223,223)"}}/>
