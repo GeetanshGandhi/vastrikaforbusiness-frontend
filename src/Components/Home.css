@@ -52,3 +52,25 @@
     color: white;
     cursor: pointer;
 }
+
+@media only screen and (max-width: 500px) {
+    .your-prod-msg {
+        font-size: 30px;
+    }
+    .products-container {
+        display: block;
+    }
+    .goto-add-prod-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin: 0 20vw;
+        padding: 0 10vw;
+        height: 10vh;
+        border-width: 2px;
+    }
+    #addprod-icon {
+        height: 50px;
+    }
+    
+}

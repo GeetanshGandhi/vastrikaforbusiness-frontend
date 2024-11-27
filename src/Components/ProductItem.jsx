@@ -50,6 +50,7 @@ const ProductItem = ({ product , removeProdFromList}) => {
 
 	return (
 		<div className="product-tile">
+			<div className="prod-top">
 			<div className="product-image">
 				<img src={`data:image/png;base64,${product.productImage}`} alt="" />
 			</div>
@@ -93,6 +94,7 @@ const ProductItem = ({ product , removeProdFromList}) => {
 						</>
 					)}
 				</div>
+			</div>			
 			</div>
 			
 			<div className="product-actions">

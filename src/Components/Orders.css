@@ -49,6 +49,12 @@
     align-items: center;
     margin: 2vh 0;
 }
+.pending-top-inner {
+    width: 80%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
 .pending-left-wrap{
     width: 20%;
     display: flex;
@@ -58,8 +64,8 @@
     height: 17vh;
 }
 .pending-mid-wrap{
-    padding: 1vh 0;
-    width: 40%;
+    padding: 1vh 1vw 0 0;
+    width: 85%;
     height: 15vh;
     display: flex;
     flex-direction: column;
@@ -104,4 +110,69 @@
     cursor: pointer;
     background-color: rgba(0, 44, 187, 0.897);
     color: white;
+}
+
+@media only screen and (max-width: 500px){
+    .pending-head {
+        font-size: 30px;
+    }
+    .placedon-wrap {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .pending-item  {
+        width: 95vw;
+    }
+    .pending-header{
+        display: block;
+    }
+    .placedon {
+        font-size: 17px;
+    }
+    .pending-stat {
+        text-align: center;
+        padding: 1px;
+        border-radius: 0;
+        font-size: 20px;
+    }
+    .pending-ordid {
+        text-align: center;
+    }
+    .pending-custmail {
+        text-align: center;
+    }
+    .pending-top-wrap {
+        display: block;
+        width: 100%;
+    }
+    .pending-top-inner {
+        width: 100%;
+    }
+    .pending-left-wrap {
+        width: 40%;
+    }
+    .pending-left-wrap img {
+        width: 100%;
+    }
+    .pending-mid-wrap {
+        width: 100%;
+    }
+    .pending-pname {
+        font-size: 17px;
+        line-height: 18px;
+    }
+    .pending-qty {
+        color: black;
+        font-size: 17px;
+    }
+    .pending-right-wrap {
+        width: 100%;
+        margin: 10px 0 0 0;
+    }
+    .deliv-add {
+        font-size: 17px;
+        text-align: center;
+        margin: 0;
+    }
 }

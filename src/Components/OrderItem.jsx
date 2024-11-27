@@ -30,20 +30,25 @@ export default function OrderItem({item, updateFunction}) {
     return (
         <div className="pending-item">
             <div className="pending-header">
-                <p className="placedon"><b>Placed On:</b> <br />{item.orders.orderDateTime.substring(8, 10) + "-" + month[item.orders.orderDateTime.substring(5, 7)] + ", " + item.orders.orderDateTime.substring(2, 4)}</p>
-                <p className="pending-stat" style={{backgroundColor:item.status==="Placed"?"rgb(0, 60, 255)":item.status==="Packed"?"rgb(0, 139, 133)":item.status==="Dispatched"?"rgb(0, 150, 12)":item.status==="Cancelled"?"red":"white"}}>
+                <div className="placedon-wrap">
+                <p className="placedon"><b>Placed On:</b></p>
+                <p className="placedon">{item.orders.orderDateTime.substring(8, 10) + "-" + month[item.orders.orderDateTime.substring(5, 7)] + ", " + item.orders.orderDateTime.substring(2, 4)}</p>
+                </div>
+                <p className="pending-stat" style={{backgroundColor:item.status==="Placed"?"rgb(0, 60, 255)":item.status==="Packed"?"rgb(0, 139, 133)":item.status==="Dispatched"?"rgb(0, 150, 12)":item.status==="Cancelled"?"red": item.status==="Complete"?"green":"white"}}>
                     {item.status}
                 </p>
                 <p className="pending-ordid"><b>Order ID:</b>  {item.orders.orderId}</p>
                 <p className="pending-custmail">Customer Email: <br /><b>{item.orders.customer.customerEmail}</b></p>
             </div>
             <div className="pending-top-wrap">
-                <div className="pending-left-wrap">
-                    <img src={`data:image/png;base64,${item.product.productImage}`} alt="" />
-                </div>
-                <div className="pending-mid-wrap">
-                    <p className="pending-pname">{item.product.productName}</p>
-                    <p className="pending-qty">Quantity: {item.quantity} @ Rs. {item.rate}/-</p>
+                <div className="pending-top-inner">
+                    <div className="pending-left-wrap">
+                        <img src={`data:image/png;base64,${item.product.productImage}`} alt="" />
+                    </div>
+                    <div className="pending-mid-wrap">
+                        <p className="pending-pname">{item.product.productName}</p>
+                        <p className="pending-qty">Quantity: {item.quantity} @ Rs. {item.rate}/-</p>
+                    </div>
                 </div>
                 <div className="pending-right-wrap">
                     <p className="deliv-add"><b>Delivery Address</b></p>
